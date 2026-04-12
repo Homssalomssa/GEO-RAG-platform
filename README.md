@@ -6,13 +6,13 @@ A production-ready **Geo-RAG (Retrieval-Augmented Generation) Platform** for sat
 
 **Key Features:**
 
-- 🖼️ Vision extraction from satellite images (Qwen3-VL)
-- 📚 Semantic & keyword-based knowledge retrieval (RAG)
-- 🧠 LLM-powered analysis (Gemma 3 4B)
-- ⚡ Async job queue with background workers
-- 💾 Multi-layer caching (vision, embeddings, responses)
-- 🌍 GIS spatial enrichment (advanced mode)
-- 📊 Real-time job monitoring & tracing
+-  Vision extraction from satellite images (Qwen3-VL)
+-  Semantic & keyword-based knowledge retrieval (RAG)
+-  LLM-powered analysis (Gemma 3 4B)
+-  Async job queue with background workers
+-  Multi-layer caching (vision, embeddings, responses)
+-  GIS spatial enrichment (advanced mode)
+-  Real-time job monitoring & tracing
 
 > **Note for Collaborators:** Looking for a detailed breakdown of how the Embeddings, ChromaDB backend, and internal JobQueue Workers communicate? Please read our [**System Logic and Tools Overview**](docs/SYSTEM_LOGIC_AND_TOOLS.md).
 
