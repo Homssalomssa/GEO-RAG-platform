@@ -22,36 +22,6 @@ The backend uses a **Singleton JobQueue** that coordinates asynchronous tasks ac
 
 *(For an in-depth breakdown of the codebase modules, please refer to the [**System Logic and Tools Overview**](docs/SYSTEM_LOGIC_AND_TOOLS.md)).*
 
-
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    FastAPI Server (8000)                     │
-│  - Async job submission endpoints                            │
-│  - Job status polling                                        │
-│  - Cache management                                          │
-│  - Health checks                                             │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-   [Vision Worker]  [Retriever]  [Answer Generator]
-   (extracts       (semantic +    (LLM generation)
-    features)      keyword search)
-        │                │                │
-        └────────────────┼────────────────┘
-                         │
-        ┌────────────────┴────────────────┐
-        │                                 │
-        ▼                                 ▼
-   [Job Queue]                      [Cache Layer]
-   (SQLite)                    (SQLite + memory)
-   - Track 4 pipeline stages
-   - Store results & timing
-   - Enable async flow
-```
-
 ---
 
 ##  Getting Started
@@ -100,4 +70,3 @@ All vector queries and visual analyses run completely offline. The repository `.
 ## License & Attribution
 
 Built as part of CAPSTONE Project 10 - Geo-RAG Analysis Platform.
-
