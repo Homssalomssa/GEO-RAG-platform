@@ -1,0 +1,39 @@
+Urban Expansion and Sprawl
+
+Urban expansion refers to the outward growth of cities into surrounding rural or undeveloped areas. It is typically characterized by the conversion of agricultural land, forests, or open spaces into built-up areas.
+
+Key indicators of urban expansion from satellite imagery include:
+- New construction at the periphery of existing urban areas
+- Transition zones where agricultural land meets new development
+- Expanding road networks connecting new developments to existing infrastructure
+- Decreased vegetation density at urban edges compared to previous periods
+
+Urban sprawl is a specific form of expansion characterized by low-density, automobile-dependent development that spreads outward from city centers. It is often associated with:
+- Fragmented development patterns with gaps between built-up areas
+- Strip development along major roads
+- Leapfrog development where new construction skips over undeveloped land
+- Low building density compared to compact urban development
+
+The rate of urban expansion can be measured by comparing satellite images taken at different time periods. Key metrics include:
+- Change in built-up area (hectares per year)
+- Building density change at urban edges
+- Land use conversion rates (agricultural to urban)
+- Infrastructure expansion (new roads, utilities)
+
+Peri-urban areas are transition zones between urban and rural areas that often show the earliest signs of urban expansion. These areas typically exhibit mixed land use with both agricultural and residential activities.
+
+Urban growth boundaries are regulatory tools used by cities to limit sprawl by defining the extent of allowable development. Areas outside these boundaries are typically zoned for agricultural or conservation use.
+
+Satellite Remote Sensing for Urban Analysis
+
+Satellite imagery provides critical data for urban analysis at various spatial resolutions:
+- High resolution (0.3-1m): Individual buildings, roads, and structures visible
+- Medium resolution (1-10m): Urban blocks, land use patches, major infrastructure
+- Low resolution (10-30m): Regional urban extent, vegetation indices
+
+Common indices used in urban analysis:
+- NDVI (Normalized Difference Vegetation Index): Measures vegetation density; low values indicate built-up areas
+- NDBI (Normalized Difference Built-up Index): Highlights built-up areas
+- UI (Urban Index): Combines spectral bands to identify urban land cover
+
+Change detection methods compare multi-temporal images to identify areas of growth, destruction, or land use change. Common approaches include image differencing, post-classification comparison, and time series analysis.

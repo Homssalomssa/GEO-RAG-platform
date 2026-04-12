@@ -1,0 +1,11 @@
+{
+  "image_hash": "abc123def456abc123def456abc123def456abc123def456abc123def456abc1",
+  "features": {
+    "vegetation_density": "high",
+    "building_density": "medium",
+    "road_density": "low",
+    "urban_pattern": "organic"
+  },
+  "cached_at": "2026-04-09T16:52:17.540709",
+  "model_version": "gemma2:4-31b-cloud"
+}

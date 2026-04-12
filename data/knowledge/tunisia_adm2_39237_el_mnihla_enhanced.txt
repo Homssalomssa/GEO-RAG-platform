@@ -1,0 +1,83 @@
+Tunisia administrative division knowledge document (GAUL ADM2)
+
+Country: Tunisia
+Governorate (ADM1): Ariana
+Division (ADM2): El Mnihla (code: 39237)
+Coordinates (centroid): lat 36.866331350499436, lon 10.10751619787779
+
+Urban metrics around centroid (buffer: 5.0 km) computed in Google Earth Engine:
+- NDVI mean (Sentinel-2 SR): 0.17053150520410745 (label: low) [2023-01-01 to 2023-12-31]
+- Built-up fraction (ESA WorldCover class 50): 0.3425429911157415 (label: high)
+- Vegetation fraction (ESA WorldCover classes 10/20/30): 0.4988632057307133 (label: high)
+
+Interpretation tags (used by RAG retrieval + prompt templates):
+- vegetation_density: high (veg fraction: 0.4988632057307133)
+- building_density: high (built-up fraction: 0.3425429911157415)
+- urban_pattern: planned grid-based urban layout
+- expansion_signs: derived from built-up vs vegetation fractions (rule-based)
+
+
+================================================================================
+SATELLITE-DERIVED VISUAL FEATURES (2020-2025 Time Series)
+================================================================================
+
+
+2020 (Sentinel-2 Satellite Analysis):
+----------------------------------------
+  Brightness: 0.518
+  Contrast: 0.238
+  Vegetation Index: 0.027
+  Urban Density Index: 0.207
+  Water Presence Index: -0.156
+  Image Quality Score: 0.234
+  RGB Composition: R=0.639 G=0.536 B=0.38
+
+2021 (Sentinel-2 Satellite Analysis):
+----------------------------------------
+  Brightness: 0.555
+  Contrast: 0.24
+  Vegetation Index: 0.0
+  Urban Density Index: 0.199
+  Water Presence Index: -0.152
+  Image Quality Score: 0.227
+  RGB Composition: R=0.707 G=0.555 B=0.403
+
+2022 (Sentinel-2 Satellite Analysis):
+----------------------------------------
+  Brightness: 0.57
+  Contrast: 0.322
+  Vegetation Index: 0.04
+  Urban Density Index: 0.218
+  Water Presence Index: -0.14
+  Image Quality Score: 0.3
+  RGB Composition: R=0.514 G=0.453 B=0.313
+
+2023 (Sentinel-2 Satellite Analysis):
+----------------------------------------
+  Brightness: 0.578
+  Contrast: 0.223
+  Vegetation Index: -0.0
+  Urban Density Index: 0.18
+  Water Presence Index: -0.148
+  Image Quality Score: 0.205
+  RGB Composition: R=0.726 G=0.578 B=0.43
+
+2024 (Sentinel-2 Satellite Analysis):
+----------------------------------------
+  Brightness: 0.621
+  Contrast: 0.216
+  Vegetation Index: -0.005
+  Urban Density Index: 0.165
+  Water Presence Index: -0.155
+  Image Quality Score: 0.19
+  RGB Composition: R=0.782 G=0.618 B=0.462
+
+2025 (Sentinel-2 Satellite Analysis):
+----------------------------------------
+  Brightness: 0.549
+  Contrast: 0.225
+  Vegetation Index: -0.005
+  Urban Density Index: 0.184
+  Water Presence Index: -0.143
+  Image Quality Score: 0.214
+  RGB Composition: R=0.698 G=0.546 B=0.404

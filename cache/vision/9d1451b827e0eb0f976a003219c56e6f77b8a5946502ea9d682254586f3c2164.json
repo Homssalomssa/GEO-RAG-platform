@@ -1,0 +1,10 @@
+{
+  "image_hash": "9d1451b827e0eb0f976a003219c56e6f77b8a5946502ea9d682254586f3c2164",
+  "features": {
+    "vegetation_density": "high",
+    "building_density": "medium",
+    "road_density": "medium"
+  },
+  "cached_at": "2026-04-09T17:39:06.918029",
+  "model_version": "gemma2:4-31b-cloud"
+}

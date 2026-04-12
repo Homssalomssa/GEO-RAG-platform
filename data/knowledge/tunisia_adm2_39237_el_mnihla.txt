@@ -1,0 +1,17 @@
+Tunisia administrative division knowledge document (GAUL ADM2)
+
+Country: Tunisia
+Governorate (ADM1): Ariana
+Division (ADM2): El Mnihla (code: 39237)
+Coordinates (centroid): lat 36.866331350499436, lon 10.10751619787779
+
+Urban metrics around centroid (buffer: 5.0 km) computed in Google Earth Engine:
+- NDVI mean (Sentinel-2 SR): 0.17053150520410745 (label: low) [2023-01-01 to 2023-12-31]
+- Built-up fraction (ESA WorldCover class 50): 0.3425429911157415 (label: high)
+- Vegetation fraction (ESA WorldCover classes 10/20/30): 0.4988632057307133 (label: high)
+
+Interpretation tags (used by RAG retrieval + prompt templates):
+- vegetation_density: high (veg fraction: 0.4988632057307133)
+- building_density: high (built-up fraction: 0.3425429911157415)
+- urban_pattern: planned grid-based urban layout
+- expansion_signs: derived from built-up vs vegetation fractions (rule-based)

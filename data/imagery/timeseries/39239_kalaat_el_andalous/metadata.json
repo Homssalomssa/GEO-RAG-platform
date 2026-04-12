@@ -1,0 +1,91 @@
+{
+  "adm2_code": "39239",
+  "adm2_name": "Kalaat El Andalous",
+  "adm1_name": "Ariana",
+  "yearly_images": [
+    {
+      "year": 2020,
+      "adm2_code": "39239",
+      "adm2_name": "Kalaat El Andalous",
+      "image_size": 2048,
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "cloud_coverage": 0.001676,
+      "image_count": 458,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 380.6484375,
+      "filename": "2020_kalaat_el_andalous_39239.png"
+    },
+    {
+      "year": 2021,
+      "adm2_code": "39239",
+      "adm2_name": "Kalaat El Andalous",
+      "image_size": 2048,
+      "start_date": "2021-01-01",
+      "end_date": "2021-12-31",
+      "cloud_coverage": 0.000289,
+      "image_count": 436,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 2895.7744140625,
+      "filename": "2021_kalaat_el_andalous_39239.png"
+    },
+    {
+      "year": 2022,
+      "adm2_code": "39239",
+      "adm2_name": "Kalaat El Andalous",
+      "image_size": 2048,
+      "start_date": "2022-01-01",
+      "end_date": "2022-12-31",
+      "cloud_coverage": 0.000504,
+      "image_count": 447,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 2817.150390625,
+      "filename": "2022_kalaat_el_andalous_39239.png"
+    },
+    {
+      "year": 2023,
+      "adm2_code": "39239",
+      "adm2_name": "Kalaat El Andalous",
+      "image_size": 2048,
+      "start_date": "2023-01-01",
+      "end_date": "2023-12-31",
+      "cloud_coverage": 0.000901,
+      "image_count": 412,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 2840.955078125,
+      "filename": "2023_kalaat_el_andalous_39239.png"
+    },
+    {
+      "year": 2024,
+      "adm2_code": "39239",
+      "adm2_name": "Kalaat El Andalous",
+      "image_size": 2048,
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "cloud_coverage": 0.000942,
+      "image_count": 457,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 2838.2685546875,
+      "filename": "2024_kalaat_el_andalous_39239.png"
+    },
+    {
+      "year": 2025,
+      "adm2_code": "39239",
+      "adm2_name": "Kalaat El Andalous",
+      "image_size": 2048,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "cloud_coverage": 0.000325,
+      "image_count": 639,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 2884.345703125,
+      "filename": "2025_kalaat_el_andalous_39239.png"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "total_items": 6,
+  "storage_mb": 0,
+  "hit_rate_percent": 0,
+  "time_saved_hours": 0,
+  "categories": {
+    "vision": {
+      "count": 4,
+      "storage_mb": 0.00119781494140625,
+      "hit_count": 5
+    },
+    "embeddings": {
+      "count": 1,
+      "storage_mb": 0.00029087066650390625,
+      "hit_count": 1,
+      "expired_count": 0
+    },
+    "llm_responses": {
+      "count": 1,
+      "storage_mb": 0.00017547607421875,
+      "hit_count": 1,
+      "expired_count": 0
+    }
+  },
+  "last_updated": "2026-04-12T16:49:13.502626"
+}

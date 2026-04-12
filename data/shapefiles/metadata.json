@@ -1,0 +1,18 @@
+{
+  "source": "Synthetic (offline fallback)",
+  "country": "Tunisia",
+  "level": "ADM2",
+  "regions": {
+    "39236": "Ariana Ville",
+    "39237": "El Mnihla",
+    "39238": "Ettadhamen",
+    "39239": "Kalaat El Andalous",
+    "39240": "Raoued"
+  },
+  "crs": "EPSG:4326",
+  "record_count": 5,
+  "geometry_type": "circles",
+  "radius_km": 15,
+  "created_at": "2026-04-09T16:51:32.351084",
+  "note": "Generated using 15km radius circles centered on region coordinates for offline environments"
+}

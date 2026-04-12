@@ -1,0 +1,91 @@
+{
+  "adm2_code": "39238",
+  "adm2_name": "Ettadhamen",
+  "adm1_name": "Ariana",
+  "yearly_images": [
+    {
+      "year": 2020,
+      "adm2_code": "39238",
+      "adm2_name": "Ettadhamen",
+      "image_size": 2048,
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "cloud_coverage": 0.002204,
+      "image_count": 229,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3495.982421875,
+      "filename": "2020_ettadhamen_39238.png"
+    },
+    {
+      "year": 2021,
+      "adm2_code": "39238",
+      "adm2_name": "Ettadhamen",
+      "image_size": 2048,
+      "start_date": "2021-01-01",
+      "end_date": "2021-12-31",
+      "cloud_coverage": 0.000289,
+      "image_count": 229,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3330.1103515625,
+      "filename": "2021_ettadhamen_39238.png"
+    },
+    {
+      "year": 2022,
+      "adm2_code": "39238",
+      "adm2_name": "Ettadhamen",
+      "image_size": 2048,
+      "start_date": "2022-01-01",
+      "end_date": "2022-12-31",
+      "cloud_coverage": 0.000504,
+      "image_count": 225,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3400.564453125,
+      "filename": "2022_ettadhamen_39238.png"
+    },
+    {
+      "year": 2023,
+      "adm2_code": "39238",
+      "adm2_name": "Ettadhamen",
+      "image_size": 2048,
+      "start_date": "2023-01-01",
+      "end_date": "2023-12-31",
+      "cloud_coverage": 0.000901,
+      "image_count": 212,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3321.904296875,
+      "filename": "2023_ettadhamen_39238.png"
+    },
+    {
+      "year": 2024,
+      "adm2_code": "39238",
+      "adm2_name": "Ettadhamen",
+      "image_size": 2048,
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "cloud_coverage": 0.000942,
+      "image_count": 228,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3284.3720703125,
+      "filename": "2024_ettadhamen_39238.png"
+    },
+    {
+      "year": 2025,
+      "adm2_code": "39238",
+      "adm2_name": "Ettadhamen",
+      "image_size": 2048,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "cloud_coverage": 0.000325,
+      "image_count": 320,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3351.4697265625,
+      "filename": "2025_ettadhamen_39238.png"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Job Queue Schema",
+  "description": "Persistent job tracking for async processing",
+  "type": "object",
+  "required": ["job_id", "status", "created_at"],
+  "properties": {
+    "job_id": {
+      "type": "string",
+      "description": "Unique job identifier"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["queued", "processing", "cached", "completed", "failed"],
+      "description": "Current job status"
+    },
+    "request": {
+      "type": "object",
+      "description": "Original request parameters",
+      "properties": {
+        "image_hash": { "type": "string" },
+        "question": { "type": "string" },
+        "mode": { "type": "string" }
+      }
+    },
+    "stages": {
+      "type": "object",
+      "description": "Processing stage status",
+      "properties": {
+        "vision_extraction": { "type": "string", "enum": ["pending", "processing", "cached", "completed", "failed"] },
+        "spatial_enrichment": { "type": "string", "enum": ["pending", "processing", "completed", "failed"] },
+        "knowledge_retrieval": { "type": "string", "enum": ["pending", "processing", "cached", "completed", "failed"] },
+        "answer_generation": { "type": "string", "enum": ["pending", "processing", "cached", "completed", "failed"] }
+      }
+    },
+    "progress": {
+      "type": "object",
+      "properties": {
+        "current_stage": { "type": "string" },
+        "percent_complete": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "result": {
+      "type": "object",
+      "description": "Final result (when completed)",
+      "properties": {
+        "answer": { "type": "string" },
+        "trace": { "type": "object" }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "created_at": { "type": "string", "format": "date-time" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "completed_at": { "type": "string", "format": "date-time" },
+        "processing_seconds": { "type": "number" }
+      }
+    },
+    "error": {
+      "type": "object",
+      "description": "Error details if failed",
+      "properties": {
+        "message": { "type": "string" },
+        "stage": { "type": "string" },
+        "traceback": { "type": "string" }
+      }
+    }
+  }
+}

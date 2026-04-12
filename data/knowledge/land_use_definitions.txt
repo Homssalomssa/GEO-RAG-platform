@@ -1,0 +1,62 @@
+Land Use Classification Definitions
+
+Land use refers to how humans utilize the land, while land cover refers to the physical surface characteristics. Both are critical for urban planning and environmental monitoring.
+
+Standard Land Use Categories (based on USGS Anderson Classification):
+
+1. Urban/Built-up Land
+   - Residential: Areas used for housing, including single-family homes, apartments, and mobile homes
+   - Commercial: Business districts, shopping centers, offices
+   - Industrial: Factories, warehouses, processing plants
+   - Transportation: Roads, railways, airports, parking areas
+   - Mixed Urban: Areas with a combination of residential, commercial, and institutional uses
+
+2. Agricultural Land
+   - Cropland: Areas actively used for growing crops
+   - Pasture: Grassland used for livestock grazing
+   - Orchards: Tree-based agricultural operations
+   - Fallow: Agricultural land temporarily not in use
+
+3. Forest and Woodland
+   - Dense Forest: Canopy coverage exceeding 70%
+   - Open Woodland: Tree coverage between 25-70%
+   - Scrubland: Low vegetation with scattered trees
+
+4. Water Bodies
+   - Rivers and streams
+   - Lakes and reservoirs
+   - Wetlands and marshes
+
+5. Barren Land
+   - Rock outcrops
+   - Sandy areas
+   - Construction sites (temporarily barren)
+
+Land Use Change Analysis:
+
+Land use change is a key indicator of urban development and environmental impact. Common transitions include:
+- Agricultural to Urban: The most common transition in growing cities
+- Forest to Agricultural: Deforestation for farming
+- Barren to Urban: Development of previously unused land
+- Urban Densification: Increasing building density within existing urban areas
+
+Key Metrics for Land Use Analysis:
+- Percentage of land in each category
+- Rate of change between categories
+- Spatial pattern of change (concentrated vs. dispersed)
+- Proximity of changes to existing infrastructure
+
+Planning Implications:
+- Uncontrolled land use change can lead to habitat fragmentation, increased flooding, and loss of agricultural productivity
+- Zoning regulations aim to control land use transitions
+- Environmental impact assessments are typically required for major land use changes
+- Green belt policies preserve open spaces around urban areas
+
+Urban Heat Island Effect:
+Dense urban areas with minimal vegetation experience higher temperatures than surrounding rural areas. This is detectable in thermal satellite imagery and correlates with:
+- High building density
+- Low vegetation coverage
+- Extensive impervious surfaces (concrete, asphalt)
+- Limited water bodies
+
+Sustainable urban planning aims to maintain a balance between built-up areas and green spaces, typically targeting a minimum of 15-20% green space within urban areas.

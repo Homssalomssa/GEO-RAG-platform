@@ -1,0 +1,43 @@
+Illegal and Informal Settlements
+
+Illegal settlements, also known as informal settlements, slums, or squatter settlements, are residential areas where inhabitants have no legal claim to the land. They are a major feature of urbanization in developing countries.
+
+Physical Characteristics Detectable from Satellite Imagery:
+
+1. Irregular Layout: Unlike planned developments, informal settlements lack a regular grid pattern. Buildings are placed without regard to setback regulations, lot boundaries, or fire safety distances.
+
+2. Small Building Footprints: Structures in informal settlements typically have smaller footprints (20-60 square meters) compared to formal residential areas (80-200+ square meters).
+
+3. High Building Density: Buildings are packed closely together with minimal spacing. Building density in informal settlements can exceed 50 structures per hectare, compared to 15-25 in planned residential areas.
+
+4. Lack of Infrastructure: Informal settlements typically lack:
+   - Paved roads (only narrow unpaved paths visible)
+   - Visible utility infrastructure (power lines, water pipes)
+   - Drainage systems
+   - Public spaces or parks
+
+5. Irregular Road Network: Instead of planned streets, informal settlements have narrow, winding paths that do not follow any planned pattern. These are typically unpaved and too narrow for vehicle access.
+
+6. Proximity to Hazardous Areas: Informal settlements often develop in areas unsuitable for formal development, such as:
+   - Flood plains and river banks
+   - Steep hillsides
+   - Adjacent to industrial zones
+   - Along railway tracks
+
+7. Roof Materials: In satellite imagery, informal structures often show heterogeneous roof materials (tin, plastic, thatch) visible as varied spectral signatures, unlike uniform roofing in planned developments.
+
+Legal Framework:
+- The UN defines informal settlements as areas where residents have no security of tenure
+- Many countries have policies ranging from forced eviction to in-situ upgrading
+- Regularization programs aim to provide legal tenure and basic services to existing settlements
+
+Detection Methods:
+- Object-based image analysis (OBIA) can identify informal settlements by texture, density, and pattern
+- Machine learning classifiers can distinguish formal from informal built-up areas
+- Multi-temporal analysis reveals rapid, unplanned growth patterns typical of informal settlement expansion
+
+Settlement Upgrading Indicators:
+- Introduction of paved roads within informal areas
+- Regularization of building patterns
+- Appearance of formal infrastructure (utility poles, drainage)
+- Increased roof material uniformity (e.g., replacement of tin with tile)

@@ -1,0 +1,91 @@
+{
+  "adm2_code": "39240",
+  "adm2_name": "Raoued",
+  "adm1_name": "Ariana",
+  "yearly_images": [
+    {
+      "year": 2020,
+      "adm2_code": "39240",
+      "adm2_name": "Raoued",
+      "image_size": 2048,
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "cloud_coverage": 0.001676,
+      "image_count": 458,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 529.892578125,
+      "filename": "2020_raoued_39240.png"
+    },
+    {
+      "year": 2021,
+      "adm2_code": "39240",
+      "adm2_name": "Raoued",
+      "image_size": 2048,
+      "start_date": "2021-01-01",
+      "end_date": "2021-12-31",
+      "cloud_coverage": 0.000289,
+      "image_count": 435,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3445.5927734375,
+      "filename": "2021_raoued_39240.png"
+    },
+    {
+      "year": 2022,
+      "adm2_code": "39240",
+      "adm2_name": "Raoued",
+      "image_size": 2048,
+      "start_date": "2022-01-01",
+      "end_date": "2022-12-31",
+      "cloud_coverage": 0.000504,
+      "image_count": 448,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3471.4794921875,
+      "filename": "2022_raoued_39240.png"
+    },
+    {
+      "year": 2023,
+      "adm2_code": "39240",
+      "adm2_name": "Raoued",
+      "image_size": 2048,
+      "start_date": "2023-01-01",
+      "end_date": "2023-12-31",
+      "cloud_coverage": 0.000901,
+      "image_count": 414,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3427.3173828125,
+      "filename": "2023_raoued_39240.png"
+    },
+    {
+      "year": 2024,
+      "adm2_code": "39240",
+      "adm2_name": "Raoued",
+      "image_size": 2048,
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "cloud_coverage": 0.000942,
+      "image_count": 457,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3346.990234375,
+      "filename": "2024_raoued_39240.png"
+    },
+    {
+      "year": 2025,
+      "adm2_code": "39240",
+      "adm2_name": "Raoued",
+      "image_size": 2048,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "cloud_coverage": 0.000325,
+      "image_count": 635,
+      "median_date": null,
+      "status": "success",
+      "file_size_kb": 3445.8046875,
+      "filename": "2025_raoued_39240.png"
+    }
+  ]
+}

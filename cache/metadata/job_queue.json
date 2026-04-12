@@ -1,0 +1,130 @@
+{
+  "jobs": {
+    "8fa732bb": {
+      "job_id": "8fa732bb",
+      "status": "completed",
+      "request": {
+        "image_hash": "test_hash_123",
+        "question": "What's the urban sprawl?",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "completed",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 25
+      },
+      "timing": {
+        "created_at": "2026-04-09T16:52:17.590755",
+        "started_at": "2026-04-09T16:52:17.590755",
+        "completed_at": "2026-04-09T16:52:17.590755",
+        "processing_seconds": 0.0
+      },
+      "result": {
+        "answer": "Urban sprawl detected in region",
+        "trace": {
+          "trace": "test"
+        }
+      },
+      "error": null
+    },
+    "258c3315": {
+      "job_id": "258c3315",
+      "status": "processing",
+      "request": {
+        "image_hash": "9d1451b827e0eb0f976a003219c56e6f77b8a5946502ea9d682254586f3c2164",
+        "question": "What is the urban density in this image?",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "completed",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "completed",
+        "answer_generation": "completed"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 25
+      },
+      "timing": {
+        "created_at": "2026-04-09T17:38:14.182801",
+        "started_at": "2026-04-12T16:49:13.494618",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": null
+    },
+    "33554f82": {
+      "job_id": "33554f82",
+      "status": "completed",
+      "request": {
+        "image_hash": "9d1451b827e0eb0f976a003219c56e6f77b8a5946502ea9d682254586f3c2164",
+        "question": "What is the urban density in this image?",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "completed",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "completed",
+        "answer_generation": "completed"
+      },
+      "progress": {
+        "current_stage": "answer_generation",
+        "percent_complete": 100
+      },
+      "timing": {
+        "created_at": "2026-04-09T17:38:51.437002",
+        "started_at": "2026-04-09T17:38:51.439004",
+        "completed_at": "2026-04-09T17:38:51.439004",
+        "processing_seconds": 0.0
+      },
+      "result": {
+        "answer": "This area shows moderate urban density with mixed residential and commercial patterns.",
+        "trace": {
+          "model": "test",
+          "tokens": 50
+        }
+      },
+      "error": null
+    },
+    "f1b7fe18": {
+      "job_id": "f1b7fe18",
+      "status": "completed",
+      "request": {
+        "image_hash": "9d1451b827e0eb0f976a003219c56e6f77b8a5946502ea9d682254586f3c2164",
+        "question": "What is the urban density in this image?",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "completed",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "completed",
+        "answer_generation": "completed"
+      },
+      "progress": {
+        "current_stage": "answer_generation",
+        "percent_complete": 100
+      },
+      "timing": {
+        "created_at": "2026-04-09T17:39:06.915026",
+        "started_at": "2026-04-09T17:39:06.917029",
+        "completed_at": "2026-04-09T17:39:06.917029",
+        "processing_seconds": 0.0
+      },
+      "result": {
+        "answer": "This area shows moderate urban density with mixed residential and commercial patterns.",
+        "trace": {
+          "model": "test",
+          "tokens": 50
+        }
+      },
+      "error": null
+    }
+  },
+  "saved_at": "2026-04-12T16:49:13.502626"
+}

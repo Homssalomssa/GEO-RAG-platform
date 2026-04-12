@@ -1,0 +1,17 @@
+Tunisia administrative division knowledge document (GAUL ADM2)
+
+Country: Tunisia
+Governorate (ADM1): Ariana
+Division (ADM2): Ettadhamen (code: 39238)
+Coordinates (centroid): lat 36.831582140105404, lon 10.10607202638708
+
+Urban metrics around centroid (buffer: 5.0 km) computed in Google Earth Engine:
+- NDVI mean (Sentinel-2 SR): 0.1506383904034756 (label: low) [2023-01-01 to 2023-12-31]
+- Built-up fraction (ESA WorldCover class 50): 0.6234198695373566 (label: high)
+- Vegetation fraction (ESA WorldCover classes 10/20/30): 0.23337423798167378 (label: medium)
+
+Interpretation tags (used by RAG retrieval + prompt templates):
+- vegetation_density: medium (veg fraction: 0.23337423798167378)
+- building_density: high (built-up fraction: 0.6234198695373566)
+- urban_pattern: urban sprawl pattern
+- expansion_signs: derived from built-up vs vegetation fractions (rule-based)

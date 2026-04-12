@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Embedding Cache Schema",
+  "description": "Cached semantic search results from ChromaDB",
+  "type": "object",
+  "required": ["query_hash", "results", "cached_at", "expires_at"],
+  "properties": {
+    "query_hash": {
+      "type": "string",
+      "description": "Hash of (query + mode) for cache key",
+      "minLength": 32
+    },
+    "query": {
+      "type": "string",
+      "description": "Original query text"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["rag_baseline", "rag_spatial", "rag_hybrid"],
+      "description": "Analysis mode used for retrieval"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "document_id": { "type": "string" },
+          "chunk_text": { "type": "string" },
+          "score": { "type": "number", "minimum": 0, "maximum": 1 },
+          "metadata": { "type": "object" }
+        }
+      },
+      "description": "Retrieved knowledge base chunks"
+    },
+    "cached_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when cached"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Expiration timestamp (7 days from cached_at)"
+    }
+  }
+}

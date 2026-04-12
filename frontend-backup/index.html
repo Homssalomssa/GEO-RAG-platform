@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-RAG — Satellite Analysis Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M12 3v18"/>
+                        <circle cx="12" cy="12" r="9" fill="none"/>
+                    </svg>
+                </div>
+                <h1>Geo-RAG</h1>
+                <p class="version">v0.3</p>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-section="upload">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    Upload
+                </button>
+                <button class="nav-item" data-section="results">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"/>
+                        <polyline points="12 12 20 7.5"/>
+                        <polyline points="12 12 12 21"/>
+                        <polyline points="12 12 4 7.5"/>
+                    </svg>
+                    Results
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="status-badge" id="systemStatus">
+                    <span class="dot"></span>
+                    <span>Checking...</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="section upload-section" id="uploadSection">
+                <div class="section-header">
+                    <h2>Analyze Satellite Imagery</h2>
+                    <p>Upload one or more satellite images and ask questions about urban patterns</p>
+                </div>
+
+                <div class="upload-container">
+                    <!-- Image Upload Area -->
+                    <div class="upload-card">
+                        <h3>Satellite Images</h3>
+                        <div class="upload-zone" id="uploadZone">
+                            <input type="file" id="imageInput" accept="image/jpeg,image/png,image/tiff,image/webp" multiple hidden>
+                            <div class="upload-content">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <path d="M21 15l-5-5L5 21"/>
+                                </svg>
+                                <p class="upload-text">Drop images here or click to browse</p>
+                                <span class="upload-hint">JPEG, PNG, TIFF, WebP • Max 10MB each</span>
+                            </div>
+                        </div>
+
+                        <!-- Image Previews -->
+                        <div class="image-grid" id="imageGrid" style="display: none;"></div>
+                    </div>
+
+                    <!-- Question & Analysis Settings -->
+                    <div class="analysis-card">
+                        <h3>Analysis Settings</h3>
+
+                        <div class="form-group">
+                            <label for="questionInput">Your Question</label>
+                            <textarea
+                                id="questionInput"
+                                rows="4"
+                                maxlength="500"
+                                placeholder="e.g., What indicators of urban sprawl are visible in this area?">
+                            </textarea>
+                            <div class="char-counter">
+                                <span id="charCount">0</span>/500
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Analysis Mode</label>
+                            <div class="mode-grid">
+                                <div class="mode-option">
+                                    <input type="radio" id="modeLLM" name="analysisMode" value="llm_only">
+                                    <label for="modeLLM">
+                                        <div class="mode-header">LLM Only</div>
+                                        <div class="mode-desc">Fast • Vision only</div>
+                                        <div class="mode-time">~3-5s</div>
+                                    </label>
+                                </div>
+
+                                <div class="mode-option">
+                                    <input type="radio" id="modeBaseline" name="analysisMode" value="rag_baseline" checked>
+                                    <label for="modeBaseline">
+                                        <div class="mode-header">RAG Baseline</div>
+                                        <div class="mode-desc">Standard • Semantic search</div>
+                                        <div class="mode-time">~6-10s</div>
+                                    </label>
+                                </div>
+
+                                <div class="mode-option">
+                                    <input type="radio" id="modeAdvanced" name="analysisMode" value="rag_advanced">
+                                    <label for="modeAdvanced">
+                                        <div class="mode-header">RAG Advanced</div>
+                                        <div class="mode-desc">Comprehensive • With GIS</div>
+                                        <div class="mode-time">~10-15s</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="analyzeBtn" class="btn-primary btn-large" disabled>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                            Analyze Images
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="section results-section" id="resultsSection" style="display: none;">
+                <div class="section-header">
+                    <h2>Analysis Results</h2>
+                    <button class="btn-back" id="backBtn">← Back to Upload</button>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading-container" id="loadingContainer" style="display: none;">
+                    <div class="spinner"></div>
+                    <p id="loadingText">Analyzing image...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">0%</p>
+                </div>
+
+                <!-- Results Display -->
+                <div id="resultsContainer"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

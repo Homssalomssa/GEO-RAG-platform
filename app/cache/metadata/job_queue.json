@@ -1,0 +1,227 @@
+{
+  "jobs": {
+    "a8c591a7": {
+      "job_id": "a8c591a7",
+      "status": "failed",
+      "request": {
+        "image_hash": "bc0ae15e619106f4e8c0c715f8f8a0b1ee433d78476263a7b27de479af68c2fd",
+        "question": "analyse the urban sprawl in thsi image",
+        "mode": "llm_only"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T14:40:55.974208",
+        "started_at": "2026-04-12T19:14:44.615548",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 404",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 404"
+      }
+    },
+    "b1597659": {
+      "job_id": "b1597659",
+      "status": "failed",
+      "request": {
+        "image_hash": "c1d58e8cb2ecdcff9323faca600b2a3220dc65617aa509dc8f477f5f140ba0a9",
+        "question": "Analyze the difference in these two images in terms of urban developpement",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T18:53:15.655917",
+        "started_at": "2026-04-12T19:14:44.846358",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 404",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 404"
+      }
+    },
+    "700afaa3": {
+      "job_id": "700afaa3",
+      "batch_id": null,
+      "status": "failed",
+      "request": {
+        "image_hash": "9e16c234fc548469e54fcb9415dc993dcf13fd9df654499162ab66d834d89ea7",
+        "question": "Analyze these two images",
+        "mode": "llm_only"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T19:16:05.963693",
+        "started_at": "2026-04-12T19:16:06.500112",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 404",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 404"
+      }
+    },
+    "336020b2": {
+      "job_id": "336020b2",
+      "batch_id": null,
+      "status": "failed",
+      "request": {
+        "image_hash": "9e16c234fc548469e54fcb9415dc993dcf13fd9df654499162ab66d834d89ea7",
+        "question": "analyze these images",
+        "mode": "llm_only"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T19:20:34.588171",
+        "started_at": "2026-04-12T19:20:34.738761",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 500",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 500"
+      }
+    },
+    "02155456": {
+      "job_id": "02155456",
+      "batch_id": null,
+      "status": "failed",
+      "request": {
+        "image_hash": "9e16c234fc548469e54fcb9415dc993dcf13fd9df654499162ab66d834d89ea7",
+        "question": "analyze these images",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T19:21:56.692233",
+        "started_at": "2026-04-12T19:21:57.408506",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 500",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 500"
+      }
+    },
+    "4d2245fd": {
+      "job_id": "4d2245fd",
+      "batch_id": null,
+      "status": "failed",
+      "request": {
+        "image_hash": "9e16c234fc548469e54fcb9415dc993dcf13fd9df654499162ab66d834d89ea7",
+        "question": "analyze these images",
+        "mode": "rag_baseline"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T19:24:57.831677",
+        "started_at": "2026-04-12T19:24:58.300039",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 500",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 500"
+      }
+    },
+    "6a0eb4b5": {
+      "job_id": "6a0eb4b5",
+      "batch_id": null,
+      "status": "failed",
+      "request": {
+        "image_hash": "9e16c234fc548469e54fcb9415dc993dcf13fd9df654499162ab66d834d89ea7",
+        "question": "analyze these images",
+        "mode": "rag_advanced"
+      },
+      "stages": {
+        "vision_extraction": "processing",
+        "spatial_enrichment": "pending",
+        "knowledge_retrieval": "pending",
+        "answer_generation": "pending"
+      },
+      "progress": {
+        "current_stage": "vision_extraction",
+        "percent_complete": 10
+      },
+      "timing": {
+        "created_at": "2026-04-12T19:25:03.070133",
+        "started_at": "2026-04-12T19:25:03.320399",
+        "completed_at": null,
+        "processing_seconds": null
+      },
+      "result": null,
+      "error": {
+        "message": "Ollama returned error: 500",
+        "stage": "vision_extraction",
+        "traceback": "Ollama returned error: 500"
+      }
+    }
+  },
+  "saved_at": "2026-04-12T19:25:03.999474"
+}

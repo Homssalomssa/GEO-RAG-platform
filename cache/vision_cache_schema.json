@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vision Feature Cache Schema",
+  "description": "Cached vision feature extraction results from satellite imagery",
+  "type": "object",
+  "required": ["image_hash", "features", "cached_at"],
+  "properties": {
+    "image_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of image bytes",
+      "minLength": 64,
+      "maxLength": 64
+    },
+    "features": {
+      "type": "object",
+      "description": "Extracted visual features",
+      "required": ["vegetation_density", "building_density", "road_density"],
+      "properties": {
+        "vegetation_density": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Estimated vegetation coverage"
+        },
+        "building_density": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Estimated building/structure coverage"
+        },
+        "road_density": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Estimated road network density"
+        },
+        "urban_pattern": {
+          "type": "string",
+          "description": "Pattern of urban development (grid, organic, dispersed, etc.)"
+        },
+        "expansion_signs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Indicators of recent urban expansion"
+        }
+      }
+    },
+    "cached_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when cached"
+    },
+    "model_version": {
+      "type": "string",
+      "description": "Vision model used to extract features"
+    }
+  }
+}

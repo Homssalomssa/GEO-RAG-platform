@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cache Metadata Index Schema",
+  "description": "Index and statistics for all cached items",
+  "type": "object",
+  "required": ["total_items", "storage_mb", "hit_rate_percent", "last_updated"],
+  "properties": {
+    "total_items": {
+      "type": "integer",
+      "description": "Total number of cached items across all categories"
+    },
+    "storage_mb": {
+      "type": "number",
+      "description": "Total storage used in MB"
+    },
+    "hit_rate_percent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage of requests served from cache"
+    },
+    "time_saved_hours": {
+      "type": "number",
+      "description": "Cumulative processing time saved by cache hits"
+    },
+    "categories": {
+      "type": "object",
+      "properties": {
+        "vision": {
+          "type": "object",
+          "properties": {
+            "count": { "type": "integer" },
+            "storage_mb": { "type": "number" },
+            "hit_count": { "type": "integer" }
+          }
+        },
+        "embeddings": {
+          "type": "object",
+          "properties": {
+            "count": { "type": "integer" },
+            "storage_mb": { "type": "number" },
+            "hit_count": { "type": "integer" },
+            "expired_count": { "type": "integer" }
+          }
+        },
+        "llm_responses": {
+          "type": "object",
+          "properties": {
+            "count": { "type": "integer" },
+            "storage_mb": { "type": "number" },
+            "hit_count": { "type": "integer" },
+            "expired_count": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "expiration_schedule": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string" },
+          "expires_at": { "type": "string", "format": "date-time" },
+          "count": { "type": "integer" }
+        }
+      },
+      "description": "Items scheduled for expiration"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
