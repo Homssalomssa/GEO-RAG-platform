@@ -117,9 +117,4 @@ All documents and imagery are now curated for **urban sprawl analysis**:
 Vision features and retrieval results are cached here automatically.
 See `cache/README.md`
 
-## Next Steps
 
-- [ ] Download Tunisia ADM2 shapefiles
-- [ ] Create spatial index (rtree)
-- [ ] Map images to regions via coordinates
-- [ ] Enrich RAG knowledge with regional metadata
