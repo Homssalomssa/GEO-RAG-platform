@@ -5,7 +5,7 @@
 ### 1. Install Dependencies
 
 ```bash
-cd "d:/CAPSTONE/project 10"
+cd .
 pip install -r requirements.txt
 ```
 
@@ -13,8 +13,8 @@ pip install -r requirements.txt
 
 ```bash
 # Ensure these models are pulled
-ollama pull qwen3-vl
-ollama pull gemma-3-4b
+ollama pull llava:7b
+ollama pull gemma3:1b
 
 # Start the server
 ollama serve
@@ -24,8 +24,8 @@ ollama serve
 ### 3. Start Geo-RAG Platform
 
 ```bash
-cd "d:/CAPSTONE/project 10/app"
-python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+cd .
+.venv312/Scripts/python.exe -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### 4. Test the System
@@ -109,15 +109,15 @@ ERROR: Vision service unavailable: Connection refused
 **Problem:** Vision or LLM returns 404
 
 ```
-ERROR: qwen3-vl not found on Ollama server
+ERROR: llava:7b not found on Ollama server
 ```
 
 **Solution:**
 
 ```bash
 # Pull missing models
-ollama pull qwen3-vl
-ollama pull gemma-3-4b
+ollama pull llava:7b
+ollama pull gemma3:1b
 
 # Verify
 ollama list
@@ -134,10 +134,10 @@ ollama list
    - Look for "Worker spawned" logs on startup
    - Verify no errors in console
 
-2. Check job queue file:
+2. Check job queue metadata file:
 
    ```bash
-   ls -la jobs_queue.sqlite
+   ls -la cache/metadata/job_queue.json
    ```
 
 3. Manually check job status:
@@ -146,9 +146,9 @@ ollama list
    curl http://localhost:8000/api/status/{job_id}
    ```
 
-4. If truly stuck, clear queue:
+4. If truly stuck, clear runtime queue/cache metadata:
    ```bash
-   rm jobs_queue.sqlite
+   rm cache/metadata/job_queue.json
    # Restart server
    ```
 
@@ -165,7 +165,7 @@ ollama list
   MAX_IMAGE_SIZE_MB = 20  # Increase to 20MB
   ```
 
-### ❌ "ImportError: No module named 'anthropic'"
+### ❌ "No module named ..."
 
 **Problem:** Missing Python dependency
 
@@ -174,7 +174,7 @@ ollama list
 ```bash
 pip install -r requirements.txt
 # Or individual install
-pip install anthropic fastapi uvicorn
+pip install fastapi uvicorn
 ```
 
 ### ❌ "Worker failed to start"
@@ -189,17 +189,16 @@ pip install anthropic fastapi uvicorn
    python -c "from app.workers.vision_extractor import VisionExtractor"
    ```
 
-2. Check database file permissions:
+2. Check queue metadata file permissions:
 
    ```bash
-   ls -la jobs_queue.sqlite
-   chmod 666 jobs_queue.sqlite
+   ls -la cache/metadata/job_queue.json
    ```
 
 3. Restart fresh:
    ```bash
-   rm jobs_queue.sqlite
-   python -m app.main
+   rm cache/metadata/job_queue.json
+   .venv312/Scripts/python.exe -m uvicorn app.main:app --host 0.0.0.0 --port 8000
    ```
 
 ### ❌ "Cache miss every time (slow responses)"
@@ -217,7 +216,7 @@ pip install anthropic fastapi uvicorn
 2. Check cache storage location:
 
    ```bash
-   ls -la cache.sqlite
+   ls -la cache/
    ```
 
 3. Try clearing cache:
@@ -242,8 +241,8 @@ curl http://localhost:8000/api/queue/stats
 ### Monitor Real-time
 
 ```bash
-# Watch job queue log (Unix/Mac)
-tail -f jobs_queue.sqlite
+# Watch queue metadata (Unix/Mac)
+tail -f cache/metadata/job_queue.json
 
 # Or check status polling
 watch -n 1 'curl http://localhost:8000/api/status/job_id | jq .progress'
@@ -307,7 +306,7 @@ await v.process_job("job_id")
 ### Backup Job Queue
 
 ```bash
-cp jobs_queue.sqlite jobs_queue.backup.sqlite
+cp cache/metadata/job_queue.json cache/metadata/job_queue.backup.json
 ```
 
 ### Clear Old Jobs
@@ -334,7 +333,7 @@ for job in all_jobs:
 ## Production Checklist
 
 - [ ] Ollama running with GPU acceleration enabled
-- [ ] Both models (`qwen3-vl`, `gemma-3-4b`) pulled and tested
+- [ ] Both models (`llava:7b`, `gemma3:1b`) pulled and tested
 - [ ] API behind reverse proxy (nginx/Apache)
 - [ ] CORS configured for frontend domain
 - [ ] SSL/TLS enabled for `/api` endpoints

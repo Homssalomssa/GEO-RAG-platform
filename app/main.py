@@ -6,7 +6,6 @@ Starts the server, includes routes, spawns background workers.
 
 import asyncio
 import logging
-from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -30,54 +29,13 @@ logger = logging.getLogger(__name__)
 # Global task references for workers
 worker_tasks = []
 
+from workers.vision_extractor import VisionExtractor
+from workers.retriever import Retriever
+from workers.answer_generator import AnswerGenerator
 
-# -----------------------------------------------------------------
-# Startup / Shutdown Events
-# -----------------------------------------------------------------
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    """
-    Handle FastAPI startup and shutdown.
-    Spawns background workers on startup, stops them on shutdown.
-    """
-    # Startup
-    logger.info("Starting Geo-RAG Platform v0.3...")
-    logger.info("Spawning background workers...")
-
-    try:
-        # Import workers
-        from workers.vision_extractor import VisionExtractor
-        from workers.retriever import Retriever
-        from workers.answer_generator import AnswerGenerator
-
-        # Create worker instances
-        vision_worker = VisionExtractor()
-        retriever_worker = Retriever()
-        answer_worker = AnswerGenerator()
-
-        # Spawn as background tasks
-        vision_task = asyncio.create_task(vision_worker.run())
-        retriever_task = asyncio.create_task(retriever_worker.run())
-        answer_task = asyncio.create_task(answer_worker.run())
-
-        worker_tasks.extend([vision_task, retriever_task, answer_task])
-        logger.info("Workers spawned: Vision, Retriever, Answer Generator")
-
-    except Exception as e:
-        logger.error(f"Failed to start workers: {e}")
-
-    yield  # Server runs here
-
-    # Shutdown
-    logger.info("Shutting down Geo-RAG Platform...")
-    for task in worker_tasks:
-        task.cancel()
-        try:
-            await task
-        except asyncio.CancelledError:
-            pass
-    logger.info("Workers stopped")
+vision_worker = VisionExtractor()
+retriever_worker = Retriever()
+answer_worker = AnswerGenerator()
 
 
 # -----------------------------------------------------------------
@@ -87,8 +45,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Geo-RAG Platform",
     description="Satellite imagery analysis with async RAG pipeline",
-    version="0.3.0",
-    lifespan=lifespan
+    version="0.3.0"
 )
 
 # CORS — allow frontend to call backend
@@ -102,6 +59,28 @@ app.add_middleware(
 
 # Include API routes
 app.include_router(router)
+
+
+@app.on_event("startup")
+async def start_workers():
+    logger.info("Starting Geo-RAG Platform v0.3...")
+    logger.info("Spawning background workers...")
+    worker_tasks.append(asyncio.create_task(vision_worker.run()))
+    worker_tasks.append(asyncio.create_task(retriever_worker.run()))
+    worker_tasks.append(asyncio.create_task(answer_worker.run()))
+
+
+@app.on_event("shutdown")
+async def stop_workers():
+    logger.info("Shutting down Geo-RAG Platform...")
+    for task in worker_tasks:
+        task.cancel()
+        try:
+            await task
+        except asyncio.CancelledError:
+            pass
+    worker_tasks.clear()
+    logger.info("Workers stopped")
 
 # Serve frontend static files
 frontend_path = Path(__file__).parent.parent / "frontend"

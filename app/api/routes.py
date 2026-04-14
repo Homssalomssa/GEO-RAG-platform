@@ -11,6 +11,8 @@ Handles:
 import asyncio
 import base64
 import logging
+import uuid
+from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
@@ -79,6 +81,12 @@ async def analyze_image_async(
     # Create job in queue
     job_id = job_queue.create_job(image_hash, question.strip(), mode)
 
+    # Persist raw image bytes so the vision worker can base64-encode them
+    tmp_dir = Path("/tmp")
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+    tmp_path = tmp_dir / f"{job_id}.img"
+    tmp_path.write_bytes(image_bytes)
+
     logger.info(f"Created job {job_id} for image {image_hash[:8]}...")
 
     return {
@@ -121,13 +129,17 @@ async def batch_analyze(
         )
 
     # Create jobs for each image
-    batch_id = f"batch_{job_queue.jobs.__len__()}"
+    batch_id = f"batch_{uuid.uuid4().hex[:8]}"
     job_ids = []
 
     for img, q in zip(images, questions_list):
         img_bytes = await img.read() if hasattr(img, 'read') else img
         img_hash = hashlib.sha256(img_bytes).hexdigest()
         job_id = job_queue.create_job(img_hash, q, mode, batch_id=batch_id)
+        tmp_dir = Path("/tmp")
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        tmp_path = tmp_dir / f"{job_id}.img"
+        tmp_path.write_bytes(img_bytes)
         job_ids.append(job_id)
 
     logger.info(f"Created batch {batch_id} with {len(job_ids)} jobs")

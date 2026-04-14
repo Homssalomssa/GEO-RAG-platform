@@ -77,7 +77,7 @@ def test_documents():
 def setup_test_knowledge_base(test_documents):
     """Setup test knowledge base before running tests."""
     # Ingest test documents
-    asyncio.run(ingest_documents(test_documents))
+    asyncio.run(asyncio.to_thread(ingest_documents, test_documents))
 
     # Verify ingestion
     collection = _get_collection()
@@ -238,7 +238,7 @@ class TestRAGServiceIntegration:
     async def test_document_ingestion_and_retrieval(self, test_documents):
         """Test that ingested documents can be retrieved."""
         # Clear and re-ingest
-        chunk_count = await ingest_documents(test_documents)
+        chunk_count = await asyncio.to_thread(ingest_documents, test_documents)
         assert chunk_count > 0
 
         # Verify retrieval works

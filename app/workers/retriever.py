@@ -48,6 +48,9 @@ class Retriever:
             logger.info(f"Retriever: Processing {job_id} (question: {question[:50]}...)")
 
             # Update job status
+            if job["stages"]["spatial_enrichment"] != "completed":
+                logger.warning("Spatial enrichment stage is pending; marking completed as no-op")
+                self.job_queue.update_stage(job_id, "spatial_enrichment", "completed", percent=28)
             self.job_queue.update_stage(job_id, "knowledge_retrieval", "processing", percent=30)
 
             # Compute query hash
@@ -65,10 +68,9 @@ class Retriever:
 
             # Spatial enrichment
             spatial_context = ""
+            # TODO: implement spatial enrichment
             if self.spatial_enricher.shapefiles_loaded:
-                # In real scenario, extract coordinates from image metadata
-                # For now, skip spatial enrichment
-                logger.debug("Retriever: Spatial enrichment enabled but no image coords")
+                logger.warning("Spatial enrichment not yet implemented — skipping")
 
             # Semantic + keyword retrieval
             semantic_results = semantic_search(f"{question} {spatial_context}", top_k=5)

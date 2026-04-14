@@ -62,8 +62,8 @@ class AnswerGenerator:
             if not retrieval_results:
                 raise ValueError(f"Retrieval results not found for {query_hash}")
 
-            # Get spatial context (mock for now)
-            spatial_context = "Urban sprawl analysis in Tunisia"
+            # Get spatial context from job payload when available
+            spatial_context = job.get("spatial_context", "")
 
             # Build prompt with all context
             prompt = build_prompt(

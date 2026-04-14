@@ -14,11 +14,12 @@ A production-ready **Geo-RAG (Retrieval-Augmented Generation) Platform** designe
 
 ##  Architecture Overview
 
-The backend uses a **Singleton JobQueue** that coordinates asynchronous tasks across three major background stages without blocking the Web API:
+The backend uses a **Singleton JobQueue** that coordinates asynchronous tasks across four major background stages without blocking the Web API:
 
-1. **Vision Worker**: Passes the uploaded image array to Ollama's vision model to extract density mappings and structural indicators.
-2. **Retriever Worker**: Generates high-dimension embeddings of the prompt and pulls relevant urban geography chunks from local storage.
-3. **Answer Generator Worker**: Mates the extracted visual observations with the RAG knowledge and hands it to the language model for a detailed final report.
+1. **Vision Extraction**: Passes the uploaded image array to Ollama's vision model to extract density mappings and structural indicators.
+2. **Spatial Enrichment** *(pending implementation)*: Reserved stage for geospatial enrichment logic.
+3. **Knowledge Retrieval**: Generates high-dimension embeddings of the prompt and pulls relevant urban geography chunks from local storage.
+4. **Answer Generation**: Mates the extracted visual observations with the RAG knowledge and hands it to the language model for a detailed final report.
 
 *(For an in-depth breakdown of the codebase modules, please refer to the [**System Logic and Tools Overview**](docs/SYSTEM_LOGIC_AND_TOOLS.md)).*
 

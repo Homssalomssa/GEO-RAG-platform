@@ -8,6 +8,19 @@ This is isolated from the orchestrator because:
 """
 
 
+def _is_detailed_question(question: str) -> bool:
+    """Heuristic: treat longer, constrained questions as detail-oriented."""
+    q = (question or "").strip()
+    if len(q) >= 120:
+        return True
+    detail_markers = [
+        "compare", "evidence", "quantify", "justify", "why", "how",
+        "based on", "indicators", "confidence", "limitations",
+    ]
+    lowered = q.lower()
+    return any(marker in lowered for marker in detail_markers)
+
+
 def format_features(features: dict) -> str:
     """Format vision features as a readable block for prompt injection."""
     lines = []
@@ -68,11 +81,24 @@ def build_prompt_llm_only(question: str, features: dict) -> str:
     No external knowledge.
     """
     features_text = format_features(features)
+    detailed = _is_detailed_question(question)
+    response_style = (
+        "Keep response under 180 words. Use this exact format:\n"
+        "1) Direct Answer: 2-3 precise sentences.\n"
+        "2) Key Evidence: up to 3 short bullet points tied to image features.\n"
+        "3) Confidence: one line (low/medium/high) with brief reason."
+        if detailed else
+        "Keep response under 120 words. Use this exact format:\n"
+        "1) Direct Answer: 2-3 precise sentences.\n"
+        "2) Confidence: one line (low/medium/high) with brief reason.\n"
+        "Do not include extra sections."
+    )
 
     return f"""You are an urban planning analyst specializing in satellite imagery interpretation.
 
 Analyze the following features extracted from a satellite image and answer the question.
 Base your analysis ONLY on the provided image features. Do not speculate beyond what the features indicate.
+Avoid generic background and repetition.
 
 === IMAGE FEATURES ===
 {features_text}
@@ -80,10 +106,8 @@ Base your analysis ONLY on the provided image features. Do not speculate beyond 
 === QUESTION ===
 {question}
 
-Provide a clear, evidence-based answer. Reference specific features from the analysis above. Structure your response with:
-1. Direct answer to the question
-2. Supporting evidence from the features
-3. Any limitations of the analysis"""
+Provide a clear, evidence-based answer. Reference specific features from the analysis above.
+{response_style}"""
 
 
 def build_prompt_rag_baseline(question: str, features: dict, chunks: list[dict]) -> str:
@@ -93,9 +117,22 @@ def build_prompt_rag_baseline(question: str, features: dict, chunks: list[dict])
     """
     features_text = format_features(features)
     chunks_text = format_chunks(chunks)
+    detailed = _is_detailed_question(question)
+    response_style = (
+        "Keep response under 220 words. Use this exact format:\n"
+        "1) Direct Answer: 2-4 precise sentences.\n"
+        "2) Evidence: up to 3 bullets; each must cite source numbers like [1].\n"
+        "3) Confidence: one line (low/medium/high) with brief reason."
+        if detailed else
+        "Keep response under 140 words. Use this exact format:\n"
+        "1) Direct Answer: 2-3 precise sentences.\n"
+        "2) Confidence: one line (low/medium/high) with brief reason.\n"
+        "If evidence is weak, say so briefly. Do not include extra sections."
+    )
 
     return f"""You are an urban planning analyst with access to domain knowledge.
 You analyze satellite imagery features and use retrieved knowledge to provide well-grounded answers.
+Avoid generic background and repetition.
 
 === IMAGE FEATURES ===
 {features_text}
@@ -106,11 +143,8 @@ You analyze satellite imagery features and use retrieved knowledge to provide we
 === QUESTION ===
 {question}
 
-Provide a clear, evidence-based answer that:
-1. References specific features from the image analysis
-2. Grounds your reasoning in the retrieved knowledge (cite sources by number, e.g., [1])
-3. Clearly distinguishes between what you observe and what the knowledge base says
-4. Notes any contradictions between observed features and retrieved knowledge"""
+Provide a clear, evidence-based answer that references image features and retrieved knowledge.
+{response_style}"""
 
 
 def build_prompt_rag_advanced(
@@ -126,9 +160,22 @@ def build_prompt_rag_advanced(
     features_text = format_features(features)
     chunks_text = format_chunks(chunks)
     gis_text = format_gis(gis_data)
+    detailed = _is_detailed_question(question)
+    response_style = (
+        "Keep response under 240 words. Use this exact format:\n"
+        "1) Direct Answer: 2-4 precise sentences.\n"
+        "2) Evidence: up to 4 bullets grouped by source type: observed features, retrieved knowledge [n], GIS.\n"
+        "3) Confidence: one line (low/medium/high) with brief reason."
+        if detailed else
+        "Keep response under 150 words. Use this exact format:\n"
+        "1) Direct Answer: 2-3 precise sentences.\n"
+        "2) Confidence: one line (low/medium/high) with brief reason.\n"
+        "Only mention the strongest evidence inline; do not add extra sections."
+    )
 
     return f"""You are an expert urban planning analyst with access to domain knowledge and structured geospatial data.
 You provide comprehensive analyses by combining satellite imagery features, retrieved knowledge, and GIS metrics.
+Avoid generic background and repetition.
 
 === IMAGE FEATURES ===
 {features_text}
@@ -142,15 +189,9 @@ You provide comprehensive analyses by combining satellite imagery features, retr
 === QUESTION ===
 {question}
 
-Provide a comprehensive, evidence-based answer that:
-1. References specific features from the image analysis
-2. Grounds your reasoning in the retrieved knowledge (cite sources by number, e.g., [1])
-3. Incorporates the GIS data metrics where relevant
-4. Clearly distinguishes between:
-   - Observed features (from satellite analysis)
-   - Knowledge-based reasoning (from retrieved documents)
-   - Data-driven metrics (from GIS data)
-5. Provides a confidence assessment (low/medium/high) for your conclusions with justification"""
+Provide a concise, evidence-based answer grounded in supplied data only.
+If any claim is unsupported by provided evidence, state it as uncertain instead of guessing.
+{response_style}"""
 
 
 # -----------------------------------------------------------------

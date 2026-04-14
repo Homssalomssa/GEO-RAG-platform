@@ -42,7 +42,7 @@ async def main():
         return
 
     print(f"\nIngesting {len(documents)} documents...")
-    count = await ingest_documents(documents)
+    count = await asyncio.to_thread(ingest_documents, documents)
     print(f"OK Successfully ingested {count} chunks into ChromaDB")
 
 

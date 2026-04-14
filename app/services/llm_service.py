@@ -40,31 +40,26 @@ async def generate(prompt: str, temperature: float = None, max_tokens: int = Non
         }
     }
 
+    result = ""
     async with httpx.AsyncClient(timeout=OLLAMA_TIMEOUT) as client:
-        try:
-            response = await client.post(
-                f"{OLLAMA_BASE_URL}/api/generate",
-                json=payload
-            )
-            response.raise_for_status()
-        except httpx.ConnectError:
-            raise ConnectionError(f"Cannot connect to Ollama at {OLLAMA_BASE_URL}")
-        except httpx.HTTPStatusError as e:
-            raise ConnectionError(f"Ollama returned error: {e.response.status_code}")
+        for attempt in range(2):
+            try:
+                response = await client.post(
+                    f"{OLLAMA_BASE_URL}/api/generate",
+                    json=payload
+                )
+                response.raise_for_status()
+            except httpx.ConnectError:
+                raise ConnectionError(f"Cannot connect to Ollama at {OLLAMA_BASE_URL}")
+            except httpx.HTTPStatusError as e:
+                raise ConnectionError(f"Ollama returned error: {e.response.status_code}")
 
-    result = response.json().get("response", "").strip()
-
-    if not result:
-        # Retry once — Ollama occasionally returns empty
-        logger.warning("Empty LLM response, retrying once...")
-        try:
-            response = await client.post(
-                f"{OLLAMA_BASE_URL}/api/generate",
-                json=payload
-            )
             result = response.json().get("response", "").strip()
-        except Exception:
-            pass
+            if result:
+                break
+
+            if attempt == 0:
+                logger.warning("Empty LLM response, retrying once...")
 
     if not result:
         raise RuntimeError("LLM returned empty response after retry")

@@ -1,5 +1,9 @@
 export default function Sidebar({ currentPage, onNavigate }) {
   const isActive = (page) => currentPage === page
+  const handleNewAnalysis = () => {
+    onNavigate?.('upload')
+    window.location.reload()
+  }
 
   return (
     <aside className="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-slate-900 border-r border-outline-variant flex flex-col z-50 p-6">
@@ -52,7 +56,10 @@ export default function Sidebar({ currentPage, onNavigate }) {
       </nav>
 
       {/* Footer Button */}
-      <button className="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+      <button
+        onClick={handleNewAnalysis}
+        className="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-all"
+      >
         <span className="material-symbols-outlined text-sm">add</span>
         <span>New Analysis</span>
       </button>

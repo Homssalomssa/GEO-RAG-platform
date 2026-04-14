@@ -88,7 +88,13 @@ export default function App() {
             setLoadingMessage(progressData.message)
           })
 
-          setResults((prev) => [...prev, result])
+          const resultWithImage = {
+            ...result,
+            fileName: fileObj.name || result.fileName || 'image',
+            imageUrl: fileObj.preview || null,
+          }
+
+          setResults((prev) => [...prev, resultWithImage])
           completedCount++
         } catch (fileError) {
           console.error(`Error analyzing file ${completedCount + 1}:`, fileError)

@@ -60,7 +60,7 @@ def test_documents_enhanced():
 def setup_enhanced_knowledge_base(test_documents_enhanced):
     """Setup knowledge base with enhanced documents."""
     import asyncio
-    asyncio.run(ingest_documents(test_documents_enhanced))
+    asyncio.run(asyncio.to_thread(ingest_documents, test_documents_enhanced))
 
     collection = _get_collection()
     chunk_count = collection.count()

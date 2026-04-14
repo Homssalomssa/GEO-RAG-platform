@@ -26,6 +26,14 @@ jobs_queue.sqlite
 cache.sqlite
 *.sqlite
 *.sqlite3
+/tmp/
+
+# Runtime cache/job artifacts (keep schemas and README tracked)
+cache/vision/*.json
+cache/embeddings/*.json
+cache/llm_responses/*.json
+cache/metadata/cache_index.json
+cache/metadata/job_queue.json
 
 # Testing
 .pytest_cache/

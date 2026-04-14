@@ -84,7 +84,7 @@ def _chunk_text(text: str, chunk_size: int = 500, overlap: int = 100) -> list[st
     return [c for c in chunks if len(c) > 50]  # Drop tiny fragments
 
 
-async def ingest_documents(documents: list[dict]) -> int:
+def ingest_documents(documents: list[dict]) -> int:
     """
     Chunk and embed documents into ChromaDB.
 

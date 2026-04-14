@@ -1,6 +1,6 @@
 # Application Core
 
-This directory contains the main Geo-RAG application code.
+This directory contains the backend Geo-RAG application code.
 
 ## Structure
 
@@ -18,6 +18,7 @@ This directory contains the main Geo-RAG application code.
 2. **Job queued** → Returns job_id to user immediately
 3. **Background worker** → `workers/` processes stages asynchronously:
    - Vision feature extraction
+   - Spatial enrichment (currently placeholder stage)
    - Knowledge retrieval
    - LLM answer generation
 4. **Results cached** → Stored in `cache/` for reuse
@@ -35,10 +36,8 @@ This directory contains the main Geo-RAG application code.
 
 ### config.py
 
-**Updated for v0.3:**
-
 - `OLLAMA_BASE_URL` — Ollama endpoint
-- `VISION_MODEL` — Vision model name (currently: qwen3-vl:235b-cloud, will update)
+- `VISION_MODEL` — Vision model name (default: `llava:7b`)
 - `LLM_MODEL` — Reasoning model (currently: gemma3:1b)
 - `CACHE_DIR` — Cache persistence location
 - `CACHE_ENABLED` — Toggle caching on/off
@@ -46,29 +45,22 @@ This directory contains the main Geo-RAG application code.
 
 ### api/routes.py
 
-**To be updated for v0.3:**
-
-- `/api/analyze` → NOW async, returns job_id
-- `/api/batch` → NEW, upload zip with multiple images
-- `/api/status/{job_id}` → NEW, check job progress
-- `/api/cache/clear` → NEW, clear cache
-- Existing endpoints (health, rag/query, rag/ingest)
+- `/api/analyze` → async, returns `job_id`
+- `/api/batch` → async batch processing
+- `/api/status/{job_id}` → polling for progress/result
+- `/api/cache/clear` and `/api/cache/stats` → cache controls
+- `/api/health` and `/api/queue/stats` → diagnostics
 
 ### core/orchestrator.py
 
-**To be refactored for v0.3:**
-
-- Old: Synchronous step-by-step analysis
-- New: Async pipeline with caching layer
-- Checks cache before extracting vision
-- Enrich RAG queries with spatial context
-- Returns job status updates
+Supports direct/synchronous orchestration path used by tests and internal flows.
+The API/UI path uses queue workers in `workers/`.
 
 ## Starting the Server
 
 ```bash
-cd /d/CAPSTONE/project\ 10
-python app/main.py
+cd ..
+.venv312\Scripts\python.exe -m uvicorn app.main:app --host 0.0.0.0 --port 8000
 # Runs on http://0.0.0.0:8000
 ```
 
@@ -89,11 +81,7 @@ curl http://localhost:8000/api/status/abc123
 # Returns: {"status": "completed", "answer": "..."}
 ```
 
-## Next Steps (v0.3)
+## Artifact Safety
 
-- [ ] Add cache_manager.py for cache operations
-- [ ] Add spatial_enricher.py for shapefile integration
-- [ ] Add job_queue.py for tracking jobs
-- [ ] Create workers/ for background processing
-- [ ] Update routes.py for async/batch endpoints
-- [ ] Update orchestrator.py for async pipeline
+Runtime files are generated under `cache/` and should not be committed.
+Tracked docs/schemas in `cache/` remain part of the repo; generated JSON data does not.

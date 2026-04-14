@@ -5,6 +5,7 @@ Runs continuously, dequeuing jobs waiting for vision stage.
 """
 
 import asyncio
+import base64
 import logging
 from pathlib import Path
 import sys
@@ -29,6 +30,7 @@ class VisionExtractor:
 
     async def process_job(self, job_id: str):
         """Process a single job: extract vision and update cache."""
+        tmp_path = Path("/tmp") / f"{job_id}.img"
         try:
             job = self.job_queue.get_job(job_id)
             if not job:
@@ -51,7 +53,9 @@ class VisionExtractor:
 
             # Cache miss → extract
             logger.info(f"Vision: Cache MISS, calling {VISION_MODEL}...")
-            features = await get_vision_features(image_hash)
+            image_bytes = tmp_path.read_bytes()
+            image_base64 = base64.b64encode(image_bytes).decode("utf-8")
+            features = await get_vision_features(image_base64)
 
             # Store in cache
             await self.cache.set_vision(image_hash, features)
@@ -63,6 +67,12 @@ class VisionExtractor:
         except Exception as e:
             logger.error(f"Vision extraction failed for {job_id}: {e}")
             self.job_queue.set_error(job_id, str(e), stage="vision_extraction", traceback=str(e))
+        finally:
+            if tmp_path.exists():
+                try:
+                    tmp_path.unlink()
+                except Exception as e:
+                    logger.warning(f"Failed to delete temp image for {job_id}: {e}")
 
     async def run(self):
         """

@@ -10,6 +10,7 @@ from datetime import datetime
 from typing import Optional, Dict, Any
 import uuid
 import sys
+from filelock import FileLock
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from app.config import CACHE_DIR
@@ -31,6 +32,7 @@ class JobQueue:
         if self._initialized:
             return
         self.queue_file = Path(CACHE_DIR) / "metadata" / "job_queue.json"
+        self.lock_file = self.queue_file.with_suffix(".lock")
         self.queue_file.parent.mkdir(parents=True, exist_ok=True)
         self.jobs = {}
         self._load_queue()
@@ -38,26 +40,28 @@ class JobQueue:
 
     def _load_queue(self):
         """Load job queue from persistent storage."""
-        if self.queue_file.exists():
-            try:
-                with open(self.queue_file) as f:
-                    data = json.load(f)
-                    self.jobs = data.get("jobs", {})
-                    logger.info(f"Loaded {len(self.jobs)} jobs from queue")
-            except Exception as e:
-                logger.error(f"Error loading job queue: {e}")
+        with FileLock(str(self.lock_file)):
+            if self.queue_file.exists():
+                try:
+                    with open(self.queue_file) as f:
+                        data = json.load(f)
+                        self.jobs = data.get("jobs", {})
+                        logger.info(f"Loaded {len(self.jobs)} jobs from queue")
+                except Exception as e:
+                    logger.error(f"Error loading job queue: {e}")
+                    self.jobs = {}
+            else:
                 self.jobs = {}
-        else:
-            self.jobs = {}
 
     def _save_queue(self):
         """Persist job queue to storage."""
-        try:
-            data = {"jobs": self.jobs, "saved_at": datetime.utcnow().isoformat()}
-            with open(self.queue_file, 'w') as f:
-                json.dump(data, f, indent=2)
-        except Exception as e:
-            logger.error(f"Error saving job queue: {e}")
+        with FileLock(str(self.lock_file)):
+            try:
+                data = {"jobs": self.jobs, "saved_at": datetime.utcnow().isoformat()}
+                with open(self.queue_file, 'w') as f:
+                    json.dump(data, f, indent=2)
+            except Exception as e:
+                logger.error(f"Error saving job queue: {e}")
 
     def create_job(self, image_hash: str, question: str, mode: str, batch_id: Optional[str] = None) -> str:
         """Create new job and return job_id."""
@@ -143,14 +147,14 @@ class JobQueue:
         self._save_queue()
         return True
 
-    def set_result(self, job_id: str, answer: str, trace: Dict[str, Any] = None) -> bool:
+    def set_result(self, job_id: str, answer: str, full_result: Dict[str, Any] = None) -> bool:
         """Set job result."""
         if job_id not in self.jobs:
             return False
 
         self.jobs[job_id]["result"] = {
             "answer": answer,
-            "trace": trace or {}
+            **(full_result or {})
         }
         self.update_job_status(job_id, "completed")
         self._save_queue()
