@@ -22,7 +22,33 @@ The backend uses a **Singleton JobQueue** that coordinates asynchronous tasks ac
 4. **Answer Generation**: Mates the extracted visual observations with the RAG knowledge and hands it to the language model for a detailed final report.
 
 *(For an in-depth breakdown of the codebase modules, please refer to the [**System Logic and Tools Overview**](docs/SYSTEM_LOGIC_AND_TOOLS.md)).*
-
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    FastAPI Server (8000)                     │
+│  - Async job submission endpoints                            │
+│  - Job status polling                                        │
+│  - Cache management                                          │
+│  - Health checks                                             │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+        ▼                ▼                ▼
+   [Vision Worker]  [Retriever]  [Answer Generator]
+   (extracts       (semantic +    (LLM generation)
+    features)      keyword search)
+        │                │                │
+        └────────────────┼────────────────┘
+                         │
+        ┌────────────────┴────────────────┐
+        │                                 │
+        ▼                                 ▼
+   [Job Queue]                      [Cache Layer]
+                       
+   - Track 4 pipeline stages
+   - Store results & timing
+   - Enable async flow
+```
 ---
 
 ##  Getting Started
