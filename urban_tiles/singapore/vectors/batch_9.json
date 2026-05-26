@@ -1,0 +1,173 @@
+[
+  {
+    "region_id": "tile_0006",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            103.8098311174991,
+            1.2199999999999747
+          ],
+          [
+            103.85474667624865,
+            1.2199999999999747
+          ],
+          [
+            103.85474667624865,
+            1.2649155587495255
+          ],
+          [
+            103.8098311174991,
+            1.2649155587495255
+          ],
+          [
+            103.8098311174991,
+            1.2199999999999747
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      103.8098311174991,
+      1.2199999999999747,
+      103.85474667624865,
+      1.2649155587495255
+    ],
+    "image_path": "./urban_tiles/singapore/tile_0006.tif",
+    "lulc_stats": {
+      "built_up": 0.10275853895782736,
+      "vegetation": 0.13624555160928822,
+      "water": 0.7609959094328844
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.09355628583204578,
+      "distance_to_transit": 376.1000795335435
+    },
+    "text_description": "1. LAND COVER:\nThe satellite tile depicts a highly fragmented land cover with a dominant composition of water bodies, which constitute approximately 76.1% of the image. The remaining 23.9% is divided between built-up areas and vegetation. Notably, there appears to be an absence of urban development within this tile, indicated by the low building density and impervious ratio.\n\n2. URBAN FORM:\nThe urban form observed in this image is characterized by a low building density, with the largest structures present, suggesting an industrial or institutional use. The organic road pattern indicates a less structured urban layout and lower connectivity between roads.\n\n3. STREET NETWORK:\nThe road network within the satellite tile is not clearly distinguishable due to the high proportion of water bodies. However, it can be inferred that the road pattern appears organic, which may suggest a more rural or suburban setting rather than a densely urbanized area.\n\n4. ACCESSIBILITY:\nIn terms of transit proximity, the tile is approximately 376 meters from the nearest point of interest (possibly a major road or public transportation hub). This distance is categorized as moderate accessibility, which could potentially limit the accessibility for certain residents and businesses in the area.\n\n5. INTERPRETATION:\nBased on these metrics, this satellite tile represents a highly fragmented landscape with a strong emphasis on water bodies, suggesting that it may be located near a coastline or significant body of water. The low building density and impervious ratio indicate a less urbanized environment with possibly residential or industrial use. The organic road pattern supports the idea of a more rural or suburban setting. The moderate accessibility to transit could have implications for the development potential and connectivity within this area.",
+    "metadata": {
+      "created_at": "2026-04-17T21:23:17.846259",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0007",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            103.8098311174991,
+            1.2649155587495255
+          ],
+          [
+            103.85474667624865,
+            1.2649155587495255
+          ],
+          [
+            103.85474667624865,
+            1.3098311174990764
+          ],
+          [
+            103.8098311174991,
+            1.3098311174990764
+          ],
+          [
+            103.8098311174991,
+            1.2649155587495255
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      103.8098311174991,
+      1.2649155587495255,
+      103.85474667624865,
+      1.3098311174990764
+    ],
+    "image_path": "./urban_tiles/singapore/tile_0007.tif",
+    "lulc_stats": {
+      "built_up": 0.6033172089699433,
+      "vegetation": 0.35391002240560876,
+      "water": 0.042772768624448024
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.16731202692424718,
+      "distance_to_transit": 128.6382965039104
+    },
+    "text_description": "1. LAND COVER:\nThe image shows a predominantly built-up landscape with a mix of vegetation and water bodies. The built-up area occupies approximately 60.3% of the tile, indicating a dense urban environment. Vegetation covers around 35.4%, suggesting some green spaces within the urban area. Water bodies are present in about 4.3% of the land cover, with no significant presence of lakes, rivers, or ponds.\n\n2. URBAN FORM:\nThe building density is low, implying a dispersed urban form rather than a compact cityscape. The average building size is large, which could suggest the presence of industrial or institutional structures. There are no evident patterns in the spatial arrangement of buildings, indicating an organic road pattern that has evolved over time.\n\n3. STREET NETWORK:\nThe street network appears to be relatively low-density and not highly organized, with no clear signs of major thoroughfares or a grid pattern. This could suggest either a small town or a less formal urban area.\n\n4. ACCESSIBILITY:\nThe distance to transit is 128.638 meters, which falls into the 'weak accessibility' category according to the rules provided. This suggests that public transportation options might be limited within this area, potentially impacting mobility and connectivity for residents.\n\n5. INTERPRETATION:\nBased on the metrics provided, this urban tile depicts a less formal, dispersed cityscape with a mix of built-up areas, vegetation, and water bodies. The low building density, organic road pattern, and weak accessibility to transit might suggest an older or less developed city where infrastructure is not as comprehensive as in more established urban centers. Further analysis would be required to understand the specific characteristics of this urban area and its potential for growth and development.",
+    "metadata": {
+      "created_at": "2026-04-17T21:23:51.120113",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0008",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            103.8098311174991,
+            1.3098311174990764
+          ],
+          [
+            103.85474667624865,
+            1.3098311174990764
+          ],
+          [
+            103.85474667624865,
+            1.3547466762486273
+          ],
+          [
+            103.8098311174991,
+            1.3547466762486273
+          ],
+          [
+            103.8098311174991,
+            1.3098311174990764
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      103.8098311174991,
+      1.3098311174990764,
+      103.85474667624865,
+      1.3547466762486273
+    ],
+    "image_path": "./urban_tiles/singapore/tile_0008.tif",
+    "lulc_stats": {
+      "built_up": 0.4350352974586602,
+      "vegetation": 0.527589162601551,
+      "water": 0.037375539939788836
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.2191979402756901,
+      "distance_to_transit": 155.47717073649227
+    },
+    "text_description": "1. LAND COVER:\nThe land cover in the tile is predominantly vegetation, with a large expanse of green areas interspersed by small patches of water and built-up surfaces. The majority of the area is covered by a variety of vegetation types, suggesting a mix of natural landscapes and possibly rural or suburban development.\n\n2. URBAN FORM:\nThe urban form in this tile exhibits a low building density with large buildings scattered across the landscape. This indicates that while there is urban development present, it is not densely packed. The presence of a road pattern that appears organic suggests an informal or lower-density urban planning approach.\n\n3. STREET NETWORK:\nThe road organization and connectivity in this tile are limited and fragmented, with no clear indication of a structured street network. This could suggest a less urbanized area or an area with less developed infrastructure.\n\n4. ACCESSIBILITY:\nBased on the satellite data, the proximity to transit is moderate at 300-800 meters, which indicates that this area may have some level of accessibility but not as extensive as areas located closer to major transportation hubs.\n\n5. INTERPRETATION:\nThe image depicts an urbanized landscape with a mix of natural and built environments. The presence of large buildings, a limited road network, and moderate accessibility suggest that this area may be in the process of urban development or could be on the outskirts of a city where infrastructure is not as fully developed. The vegetation dominates the scene, indicating that preservation of natural landscapes might be important in this area. However, without additional context, it is difficult to make more specific conclusions about the nature of the urbanization or the future trajectory of development in this area.",
+    "metadata": {
+      "created_at": "2026-04-17T21:25:27.030354",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  }
+]

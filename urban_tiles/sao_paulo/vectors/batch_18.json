@@ -1,0 +1,173 @@
+[
+  {
+    "region_id": "tile_0015",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -46.575253323751355,
+            -23.495298323656527
+          ],
+          [
+            -46.5303377650018,
+            -23.495298323656527
+          ],
+          [
+            -46.5303377650018,
+            -23.450382764906976
+          ],
+          [
+            -46.575253323751355,
+            -23.450382764906976
+          ],
+          [
+            -46.575253323751355,
+            -23.495298323656527
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      -46.575253323751355,
+      -23.495298323656527,
+      -46.5303377650018,
+      -23.450382764906976
+    ],
+    "image_path": "./urban_tiles/sao_paulo/tile_0015.tif",
+    "lulc_stats": {
+      "built_up": 0.8721284427683763,
+      "vegetation": 0.12637626192688953,
+      "water": 0.0014952953047342094
+    },
+    "urban_features": {
+      "building_density": "medium",
+      "road_pattern": "organic",
+      "avg_building_size": "medium"
+    },
+    "derived_metrics": {
+      "impervious_ratio": 0.06744903753019338,
+      "distance_to_transit": 83.20168215740054
+    },
+    "text_description": "1. LAND COVER:\nThe land cover in this satellite tile is predominantly urban, with a built-up area of 87.2%. The vegetation coverage amounts to 12.6%, which is relatively low for an urban landscape. There are no significant areas of water or other natural features visible in the image.\n\n2. URBAN FORM:\nThe urban form in this satellite tile exhibits a medium building density, with a road pattern that can be described as organic. The average building size appears to be moderate, indicating a mix of residential and commercial structures.\n\n3. STREET NETWORK:\nThe street network is not highly organized or structured, suggesting a less centralized urban layout. Roads do not form a grid-like pattern, which indicates a more organic growth of the city.\n\n4. ACCESSIBILITY:\nIn terms of accessibility to transit, the location appears to be at an 83.2 meter distance from a public transportation stop or station. This suggests that the location may have moderate accessibility to public transport.\n\n5. INTERPRETATION:\nBased on the metrics provided, the urban character of this location can be described as a moderately built-up area with a mix of residential and commercial structures. The low vegetation coverage and relatively organic street network suggest that the city may have grown organically over time rather than being planned according to strict grid-like patterns. The proximity to public transit indicates that there is some level of accessibility for residents, which could be important for quality of life in this area.",
+    "metadata": {
+      "created_at": "2026-04-17T22:14:19.745630",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0016",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -46.5303377650018,
+            -23.63004499990518
+          ],
+          [
+            -46.48542220625225,
+            -23.63004499990518
+          ],
+          [
+            -46.48542220625225,
+            -23.58512944115563
+          ],
+          [
+            -46.5303377650018,
+            -23.58512944115563
+          ],
+          [
+            -46.5303377650018,
+            -23.63004499990518
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      -46.5303377650018,
+      -23.63004499990518,
+      -46.48542220625225,
+      -23.58512944115563
+    ],
+    "image_path": "./urban_tiles/sao_paulo/tile_0016.tif",
+    "lulc_stats": {
+      "built_up": 0.9232685589485066,
+      "vegetation": 0.07673144105149354,
+      "water": 0
+    },
+    "urban_features": {
+      "building_density": "medium",
+      "road_pattern": "organic",
+      "avg_building_size": "medium"
+    },
+    "derived_metrics": {
+      "impervious_ratio": 0.07048810894329387,
+      "distance_to_transit": 85.50917256139383
+    },
+    "text_description": "1. LAND COVER:\nThe dominant land cover in the satellite tile is built-up (92.3%), indicating a highly urbanized area. The vegetation percentage, at 7.7%, is relatively low, suggesting limited green spaces within the city. There are no visible bodies of water in this image, resulting in a water percentage of 0.0%.\n\n2. URBAN FORM:\nThe building density appears to be medium, with a mix of small and large buildings spread across the urban landscape. The average building size falls within the medium category, implying that there is a balance between residential and mixed-use structures. The road pattern in the area exhibits an organic arrangement, suggesting a more historic or older part of the city rather than a grid-based modern layout.\n\n3. STREET NETWORK:\nThe street network within this urban tile seems to be well-organized but not highly connected. This could indicate a mature and established neighborhood that may not have been planned according to strict grid systems.\n\n4. ACCESSIBILITY:\nThe distance to transit is measured as 85.5 meters, indicating moderate accessibility to public transportation. This suggests that the area might be well-served by public transport options but is not immediately adjacent to a major transit hub.\n\n5. INTERPRETATION:\nBased on these metrics, the satellite tile depicts an urbanized area with a mix of residential and mixed-use buildings. The organic street network and moderate accessibility to transit suggest that this could be a part of a city that has grown over time, with public transportation available but not directly adjacent to major transit hubs.",
+    "metadata": {
+      "created_at": "2026-04-17T22:15:02.262806",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0017",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -46.5303377650018,
+            -23.58512944115563
+          ],
+          [
+            -46.48542220625225,
+            -23.58512944115563
+          ],
+          [
+            -46.48542220625225,
+            -23.54021388240608
+          ],
+          [
+            -46.5303377650018,
+            -23.54021388240608
+          ],
+          [
+            -46.5303377650018,
+            -23.58512944115563
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      -46.5303377650018,
+      -23.58512944115563,
+      -46.48542220625225,
+      -23.54021388240608
+    ],
+    "image_path": "./urban_tiles/sao_paulo/tile_0017.tif",
+    "lulc_stats": {
+      "built_up": 0.8726662377438192,
+      "vegetation": 0.12733376225618084,
+      "water": 0
+    },
+    "urban_features": {
+      "building_density": "medium",
+      "road_pattern": "organic",
+      "avg_building_size": "medium"
+    },
+    "derived_metrics": {
+      "impervious_ratio": 0.06199679826593899,
+      "distance_to_transit": 194.62768420908316
+    },
+    "text_description": "1. LAND COVER:\nThe satellite tile depicts a predominantly built-up environment with an urbanized landscape accounting for 87.3% of the area. Vegetation is sparse, representing only 12.7%, while water bodies are not detected within this tile.\n\n2. URBAN FORM:\nThe urban fabric in the image presents a medium building density and building size, indicative of a mixed-use neighborhood or suburbia. The buildings appear to be arranged in an organic pattern, suggesting informal planning or development.\n\n3. STREET NETWORK:\nNo significant road organization is discernible from the satellite image. Connectivity among roads appears limited and unstructured.\n\n4. ACCESSIBILITY:\nThe location's transit accessibility is moderate, with a distance to transit of 194.6 meters. This suggests that while there may be public transportation options in the area, they are not immediately adjacent or easily accessible from this specific tile.\n\n5. INTERPRETATION:\nBased on the image and metrics provided, this satellite tile represents a moderately built-up area with limited road organization and moderate transit accessibility. The presence of medium building density and size indicates mixed-use development, possibly with residential and commercial structures. The organic road pattern and sparse vegetation suggest that the area might be in an early phase of urbanization or in a location where planning regulations are less strict. Overall, the image portrays a developing urban environment with potential for future expansion and infrastructure improvement.",
+    "metadata": {
+      "created_at": "2026-04-17T22:16:06.864894",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  }
+]

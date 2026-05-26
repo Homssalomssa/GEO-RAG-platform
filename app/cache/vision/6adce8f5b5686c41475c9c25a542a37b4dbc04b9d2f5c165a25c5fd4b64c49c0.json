@@ -1,0 +1,13 @@
+{
+  "image_hash": "6adce8f5b5686c41475c9c25a542a37b4dbc04b9d2f5c165a25c5fd4b64c49c0",
+  "features": {
+    "vegetation_density": "low",
+    "building_density": "medium with some irregularity",
+    "road_density": "low to medium, with a mix of paved and unpaved roads",
+    "urban_pattern": "irregular",
+    "expansion_signs": "not detected",
+    "illegal_settlement_indicators": "not detected"
+  },
+  "cached_at": "2026-05-25T16:40:04.768873",
+  "model_version": "gemma2:4-31b-cloud"
+}

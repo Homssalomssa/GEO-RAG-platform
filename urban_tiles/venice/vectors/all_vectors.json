@@ -1,0 +1,59 @@
+[
+  {
+    "region_id": "tile_0000",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            12.300999999999998,
+            45.41999999999998
+          ],
+          [
+            12.34591555874955,
+            45.41999999999998
+          ],
+          [
+            12.34591555874955,
+            45.46491555874953
+          ],
+          [
+            12.300999999999998,
+            45.46491555874953
+          ],
+          [
+            12.300999999999998,
+            45.41999999999998
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      12.300999999999998,
+      45.41999999999998,
+      12.34591555874955,
+      45.46491555874953
+    ],
+    "image_path": "./urban_tiles/venice/tile_0000.tif",
+    "lulc_stats": {
+      "built_up": 0.2877580319970495,
+      "vegetation": 0.03430673014243066,
+      "water": 0.6779352378605198
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.05221877716804594,
+      "distance_to_transit": 187.95523551865182
+    },
+    "text_description": "1. LAND COVER:\nThe land cover in the image is dominated by water, which covers approximately 67.8% of the tile, indicating a coastal or island setting. Vegetation is sparse, accounting for only 3.4% of the area, while built-up surfaces constitute 28.8%. The low vegetation cover and high water coverage suggest that this region is primarily geared towards urban development along the coastline.\n\n2. URBAN FORM:\nThe building density in the image is low, with a pattern that appears somewhat organic and not highly structured. The average building size is large, suggesting that many structures within the built-up area are likely intended for industrial or institutional use rather than residential purposes. \n\n3. STREET NETWORK:\nThe road organization within the tile is organic, without evident grid patterns. This layout might suggest a more natural growth of the urban form over time, as opposed to a planned grid system commonly seen in many modern city plans.\n\n4. ACCESSIBILITY:\nBased on the distance to transit metric provided, the accessibility to public transportation within this tile appears moderate, with no immediately adjacent transit stops detected. This could indicate that the area is either underdeveloped or serves a population with less reliance on public transit.\n\n5. INTERPRETATION:\nThe image depicts a coastal urban landscape with a low building density and large average building size, primarily serving industrial or institutional functions. The natural growth of the urban form is evident in the organic street network. Due to the moderate accessibility to public transportation, this area may experience less traffic congestion but could also lack convenient transit options for residents. Overall, the image suggests a somewhat sparse and functionally oriented coastal community with a focus on industrial or institutional activities.",
+    "metadata": {
+      "created_at": "2026-04-17T19:27:52.898750",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  }
+]

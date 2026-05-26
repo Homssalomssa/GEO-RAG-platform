@@ -1,0 +1,59 @@
+[
+  {
+    "region_id": "tile_0002",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            2.224,
+            48.89183111749907
+          ],
+          [
+            2.268915558749551,
+            48.89183111749907
+          ],
+          [
+            2.268915558749551,
+            48.936746676248625
+          ],
+          [
+            2.224,
+            48.936746676248625
+          ],
+          [
+            2.224,
+            48.89183111749907
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      2.224,
+      48.89183111749907,
+      2.268915558749551,
+      48.936746676248625
+    ],
+    "image_path": "./urban_tiles/paris/tile_0002.tif",
+    "lulc_stats": {
+      "built_up": 0.7465337401489968,
+      "vegetation": 0.22445840159329403,
+      "water": 0.029007858257709223
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.18859027553449223,
+      "distance_to_transit": 58.00353516409912
+    },
+    "text_description": "1. LAND COVER:\nThe satellite tile presents a diverse land cover with a predominance of built-up areas, occupying approximately 74.7% of the image, suggesting a dense urban environment. Vegetation is sparse and covers roughly 22.4%, while water is limited to just 2.9%. The built-up area is mainly characterized by large buildings, with some open spaces interspersed throughout.\n\n2. URBAN FORM:\nThe building density within the tile is low, indicating a dispersed urban fabric. However, there are several areas of concentrated built-up space, featuring large structures which may be industrial or institutional in nature. The average building size appears to be quite large, further emphasizing the urban setting. The spatial arrangement of buildings suggests an organic layout without strict grid patterns.\n\n3. STREET NETWORK:\nThe road network within the tile exhibits a somewhat organic and fragmented pattern, with no clear central artery or major thoroughfares. This may indicate a more residential or suburban area rather than a highly organized city center.\n\n4. ACCESSIBILITY:\nThe proximity to transit is low, with the nearest point of interest being 580 meters away. This suggests that the tile is likely on the outskirts of a city or in a less centralized urban area.\n\n5. INTERPRETATION:\nFrom these metrics, it can be concluded that this satellite tile represents a suburban or peripheral urban area with low building density and an organic street network. The presence of large buildings indicates some degree of industrial activity, but the overall character appears to be more residential or suburban than centralized or downtown. The image does not showcase highways, shopping centers, or dense clusters of buildings typically associated with a city center, reinforcing the peripheral urban nature of this location.",
+    "metadata": {
+      "created_at": "2026-04-17T20:57:37.551670",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  }
+]

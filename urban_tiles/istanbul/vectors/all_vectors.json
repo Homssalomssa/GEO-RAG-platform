@@ -1,0 +1,515 @@
+[
+  {
+    "region_id": "tile_0000",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.909999999999997,
+            40.99999999999997
+          ],
+          [
+            28.954915558749548,
+            40.99999999999997
+          ],
+          [
+            28.954915558749548,
+            41.04491555874952
+          ],
+          [
+            28.909999999999997,
+            41.04491555874952
+          ],
+          [
+            28.909999999999997,
+            40.99999999999997
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.909999999999997,
+      40.99999999999997,
+      28.954915558749548,
+      41.04491555874952
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0000.tif",
+    "lulc_stats": {
+      "built_up": 0.8162152860998418,
+      "vegetation": 0.1417764343424401,
+      "water": 0.04200827955771797
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.05616993708211812,
+      "distance_to_transit": 6.573677303345521
+    },
+    "text_description": "1. LAND COVER:\nThe satellite tile primarily displays urban development, with the dominant land cover being built-up areas at approximately 81.6%. Vegetation coverage is relatively low, accounting for 14.2%, and water features are present in just over 4% of the area.\n\n2. URBAN FORM:\nThe urban fabric is characterized by a lower building density, indicating a more decentralized distribution of buildings rather than a densely packed cityscape. The average building size is large, suggesting the presence of institutional or industrial structures. The road pattern appears to be organic, reflecting a more natural and less grid-like network that is common in many urban environments.\n\n3. STREET NETWORK:\nThe street network within this tile seems to be moderately connected with limited major roads. This could imply a more residential or suburban setting where the road infrastructure is sufficient for local travel but may not support high-speed traffic or major transportation corridors.\n\n4. ACCESSIBILITY:\nThe proximity to transit is moderate, as indicated by a distance of approximately 6.573 km. This suggests that access to public transportation might be somewhat limited, which could impact the daily commute and mobility options for residents within this area.\n\n5. INTERPRETATION:\nBased on these metrics, the urban character appears to be suburban or a mix of residential and industrial areas with low population density. The road network is not highly organized but serves as an effective means of local travel, while access to transit is relatively limited. This area may experience less congestion and noise pollution compared to densely built-up city centers, but it might also present challenges for those relying on public transportation.",
+    "metadata": {
+      "created_at": "2026-04-17T21:38:03.366305",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0001",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.909999999999997,
+            41.04491555874952
+          ],
+          [
+            28.954915558749548,
+            41.04491555874952
+          ],
+          [
+            28.954915558749548,
+            41.089831117499074
+          ],
+          [
+            28.909999999999997,
+            41.089831117499074
+          ],
+          [
+            28.909999999999997,
+            41.04491555874952
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.909999999999997,
+      41.04491555874952,
+      28.954915558749548,
+      41.089831117499074
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0001.tif",
+    "lulc_stats": {
+      "built_up": 0.8018446294396271,
+      "vegetation": 0.15809504822251258,
+      "water": 0.04006032233786032
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.11857237226298009,
+      "distance_to_transit": 211.93753947451265
+    },
+    "text_description": "1. LAND COVER:\nThe satellite tile shows a predominantly urban landscape with a built-up area of 80.2%. The vegetation cover is relatively low at 15.8%, indicating a densely constructed environment with limited green spaces. A small amount of water, around 4%, can be observed, which could suggest the presence of a river or a lake near the city.\n\n2. URBAN FORM:\nThe building density in this urban area is low, suggesting a less compact city structure. The average building size appears to be large, indicating a mix of commercial and residential structures, possibly with some industrial or institutional elements as well. The spatial arrangement of buildings seems organic, with no clear grid or pattern, which is common in older cities or those that have grown over time.\n\n3. STREET NETWORK:\nThe road organization within the image is somewhat organic, with streets weaving through the urban landscape rather than following a strict grid plan. This suggests a more free-flowing and less formalized street network. The connectivity of the roads is moderate, with some areas showing higher levels of intersectionality while others have fewer connections, indicating a less comprehensive road system.\n\n4. ACCESSIBILITY:\nThe image shows that 211.9375 meters away from the tile, there is public transit available, which indicates moderate accessibility to transit services for the urban area depicted in the satellite tile.\n\n5. INTERPRETATION:\nBased on the metrics provided and visible in the image, this urban area appears to be a mix of residential and commercial zones with some industrial or institutional elements. The organic road pattern and low building density suggest it could be a less densely populated city or one that has not yet reached its full potential for urbanization. The moderate street network connectivity implies that while the city is accessible, there may still be areas with limited transportation options. Overall, this image presents an urban landscape that is transitioning from less dense to more developed, with opportunities for growth and expansion in both infrastructure and population density.",
+    "metadata": {
+      "created_at": "2026-04-17T21:38:58.081921",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0002",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.909999999999997,
+            41.089831117499074
+          ],
+          [
+            28.954915558749548,
+            41.089831117499074
+          ],
+          [
+            28.954915558749548,
+            41.134746676248625
+          ],
+          [
+            28.909999999999997,
+            41.134746676248625
+          ],
+          [
+            28.909999999999997,
+            41.089831117499074
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.909999999999997,
+      41.089831117499074,
+      28.954915558749548,
+      41.134746676248625
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0002.tif",
+    "lulc_stats": {
+      "built_up": 0.13098880490581938,
+      "vegetation": 0.7908920601481438,
+      "water": 0.07811913494603678
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.21680864490014592,
+      "distance_to_transit": 9999
+    },
+    "text_description": "1. LAND COVER:\nThe image reveals a landscape dominated by vegetation, with a significant proportion of trees and grasslands. The built-up area accounts for approximately 13% of the satellite tile, and there is a notable presence of water bodies as well.\n\n2. URBAN FORM:\nThe urban form is characterized by low building density and a mix of large buildings indicative of an industrial or institutional setting. The spatial arrangement appears organic, suggesting that the city has developed over time with less emphasis on grid-based planning.\n\n3. STREET NETWORK:\nRoad organization within the visible part of the image is fragmented and seems to follow a more organic pattern than a structured grid layout, which is often seen in highly planned urban areas.\n\n4. ACCESSIBILITY:\nTransit proximity within this area appears weak, as no nearby transit hubs are detected. The distance to the nearest transit point is 9999 meters from the provided bounding box coordinates.\n\n5. INTERPRETATION:\nThe satellite image suggests a landscape that is predominantly natural with only 13% built-up area and low building density, indicative of less urbanization or suburban development. The presence of water bodies and vegetation implies that the area may have significant ecological value. The organic street pattern and large buildings hint at an industrial or institutional setting, potentially situated in a region with a focus on resource extraction or preservation of nature. The absence of nearby transit points indicates that this area might be more remote or less developed compared to other urban environments.",
+    "metadata": {
+      "created_at": "2026-04-17T21:40:01.787433",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0003",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.954915558749548,
+            40.99999999999997
+          ],
+          [
+            28.9998311174991,
+            40.99999999999997
+          ],
+          [
+            28.9998311174991,
+            41.04491555874952
+          ],
+          [
+            28.954915558749548,
+            41.04491555874952
+          ],
+          [
+            28.954915558749548,
+            40.99999999999997
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.954915558749548,
+      40.99999999999997,
+      28.9998311174991,
+      41.04491555874952
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0003.tif",
+    "lulc_stats": {
+      "built_up": 0.5512889952504536,
+      "vegetation": 0.08464123265359004,
+      "water": 0.3640697720959562
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.055731713730532366,
+      "distance_to_transit": 119.79410199188248
+    },
+    "text_description": "1. LAND COVER:\nThe image depicts a predominantly built-up area, with 55.1% of the land cover classified as urban development. There is also a significant presence of vegetation at 8.5%, and water features such as rivers and lakes make up approximately 36.4% of the scene.\n\n2. URBAN FORM:\nThe built-up area exhibits low building density, indicating a less compact urban fabric. The average building size is large, suggesting a mix of commercial or institutional structures interspersed with residential parcels. Spatial arrangement appears organic, indicative of a more natural growth pattern within the urban environment.\n\n3. STREET NETWORK:\nThe road organization in this image seems to follow an organic layout, which could indicate a historic or developing urban area that has not yet been fully formalized. There is no clear indication of a comprehensive grid or radial system typically seen in more established urban centers.\n\n4. ACCESSIBILITY:\nTransit proximity within the image suggests moderate accessibility, with 119.794 meters to the nearest transit point detected. This could indicate that the area may be serviced by local or regional transport systems but is not immediately accessible by high-speed rail or subway lines.\n\n5. INTERPRETATION:\nBased on the image's metrics, this urban tile represents a developing or less densely populated area characterized by low building density and large average building sizes. The organic road pattern suggests that infrastructure has been laid out over time without strict adherence to a grid or radial system, possibly indicating historical growth patterns or ongoing expansion into surrounding natural environments. Transit accessibility appears moderate, and there is no immediate indication of significant urban development in the immediate future.",
+    "metadata": {
+      "created_at": "2026-04-17T21:41:09.195644",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0004",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.954915558749548,
+            41.04491555874952
+          ],
+          [
+            28.9998311174991,
+            41.04491555874952
+          ],
+          [
+            28.9998311174991,
+            41.089831117499074
+          ],
+          [
+            28.954915558749548,
+            41.089831117499074
+          ],
+          [
+            28.954915558749548,
+            41.04491555874952
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.954915558749548,
+      41.04491555874952,
+      28.9998311174991,
+      41.089831117499074
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0004.tif",
+    "lulc_stats": {
+      "built_up": 0.8553402799787877,
+      "vegetation": 0.1398924464599284,
+      "water": 0.004767273561283964
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.07621075734899156,
+      "distance_to_transit": 68.63983162515264
+    },
+    "text_description": "1. LAND COVER: The satellite tile features a significant portion of the image (85.5%) covered by built-up areas, with only small amounts of vegetation and water. This suggests a highly urbanized area where buildings are the most dominant land cover type.\n\n2. URBAN FORM: The building density is low, indicating that there is ample open space between structures. The average building size is large, suggesting an urban setting with a concentration of larger institutional or industrial structures. The road pattern appears to be organic rather than grid-like, which might indicate a more historic or densely-planned cityscape.\n\n3. STREET NETWORK: While the image does not provide specific details on the street network, the presence of roads suggests a connected urban area. However, without additional information, it is impossible to determine the connectivity and organization of the road network.\n\n4. ACCESSIBILITY: The distance to transit is moderate (688 meters), which implies that this area may not be highly accessible to public transportation. This could suggest that the area relies more on private vehicles or pedestrian access for transportation.\n\n5. INTERPRETATION: Based on the provided metrics, the image depicts a large urban area with a mix of institutional and industrial structures, low building density, and moderate accessibility to transit. The high level of built-up areas suggests that this region is likely a central or commercial part of a city where significant development has occurred. However, without additional context, it's difficult to determine the exact character of the area, such as whether it's primarily residential or commercial.",
+    "metadata": {
+      "created_at": "2026-04-17T21:42:13.675804",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0005",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.954915558749548,
+            41.089831117499074
+          ],
+          [
+            28.9998311174991,
+            41.089831117499074
+          ],
+          [
+            28.9998311174991,
+            41.134746676248625
+          ],
+          [
+            28.954915558749548,
+            41.134746676248625
+          ],
+          [
+            28.954915558749548,
+            41.089831117499074
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.954915558749548,
+      41.089831117499074,
+      28.9998311174991,
+      41.134746676248625
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0005.tif",
+    "lulc_stats": {
+      "built_up": 0.3287808337366175,
+      "vegetation": 0.6651390664204364,
+      "water": 0.006080099842946038
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.19185832710780668,
+      "distance_to_transit": 62.08292976667925
+    },
+    "text_description": "1. LAND COVER:\nThe image shows a satellite tile that exhibits a predominantly urban landscape, with 32.9% of the land cover being built-up. Vegetation is relatively abundant at 66.5%, and there is minimal water present in the area (0.6%). The overall land cover distribution suggests that while the area has been developed for human use, it still retains a significant amount of greenery and natural elements.\n\n2. URBAN FORM:\nThe urban form in this satellite tile can be described as having low building density, with large structures scattered throughout the image. There is no clear evidence of a compact urban fabric or mixed-use blocks, suggesting that the area may not have well-defined neighborhoods or districts. The road pattern appears organic, indicating less planned and more natural growth in the urban environment.\n\n3. STREET NETWORK:\nThe street network within this satellite tile is somewhat fragmented, with roads connecting various parts of the urban landscape. There does not seem to be a clearly defined grid-like pattern or centralized road system, which may suggest that this area has developed over time without a strict master plan.\n\n4. ACCESSIBILITY:\nThe transit proximity in the image is moderate, with the nearest access point being 620 meters away. This could indicate that the area might be less connected to public transportation or major roadways, potentially leading to increased dependence on private vehicles for commuting.\n\n5. INTERPRETATION:\nBased on these metrics, it can be concluded that this satellite tile represents a moderately developed urban landscape with some natural elements preserved. The low building density and organic street pattern suggest an area that has evolved over time rather than being a planned development. The moderate transit accessibility implies that the location might not have easy access to public transportation or major roads, which could influence the daily lives of those living in this area.",
+    "metadata": {
+      "created_at": "2026-04-17T21:44:06.578433",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0006",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.9998311174991,
+            40.99999999999997
+          ],
+          [
+            29.04474667624865,
+            40.99999999999997
+          ],
+          [
+            29.04474667624865,
+            41.04491555874952
+          ],
+          [
+            28.9998311174991,
+            41.04491555874952
+          ],
+          [
+            28.9998311174991,
+            40.99999999999997
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.9998311174991,
+      40.99999999999997,
+      29.04474667624865,
+      41.04491555874952
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0006.tif",
+    "lulc_stats": {
+      "built_up": 0.46270147418919955,
+      "vegetation": 0.18214730247087188,
+      "water": 0.3551512233399285
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.09729821078995092,
+      "distance_to_transit": 145.22190867780682
+    },
+    "text_description": "1. LAND COVER:\nThe image depicts a coastal city with a clear distinction between built-up, vegetation, and water areas. The built-up area is primarily on the right side of the image, with a few scattered buildings and patches of green space interspersed throughout. Vegetation is more prevalent towards the left and south, while water is abundant in the north and east, indicating a large bay or coastal area.\n\n2. URBAN FORM:\nBuilding density is low, with building coverage scattered across the image, suggesting a sparse urban fabric with minimal high-rise structures. Average building size appears to be large, possibly indicative of industrial or institutional structures, rather than residential areas. The road pattern is organic and meandering, typical of older city planning styles where roads follow topographic contours.\n\n3. STREET NETWORK:\nThe street network consists of a central spine that runs down the center of the built-up area, with several intersecting roads creating a grid-like layout towards the right side of the image. This suggests a more connected and accessible road system in the central part of the city.\n\n4. ACCESSIBILITY:\nThe distance to transit is moderate at 145.2 meters, indicating that while not directly adjacent to transit lines or hubs, the area has some degree of accessibility. However, it does not appear to be highly accessible or easily navigable for pedestrians or cyclists, potentially limiting the ease with which people can traverse this part of the city.\n\n5. INTERPRETATION:\nThe image appears to show a coastal residential area with a mix of industrial or institutional buildings. The low building density and large average building size suggest that land use is primarily commercial or industrial rather than residential, though scattered greenery and water suggest a pleasant living environment. The organic road pattern and moderate accessibility indicate that the city has grown organically over time and may require improvements in public transit options to enhance connectivity and accessibility for residents and visitors alike.",
+    "metadata": {
+      "created_at": "2026-04-17T21:44:58.987428",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0007",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.9998311174991,
+            41.04491555874952
+          ],
+          [
+            29.04474667624865,
+            41.04491555874952
+          ],
+          [
+            29.04474667624865,
+            41.089831117499074
+          ],
+          [
+            28.9998311174991,
+            41.089831117499074
+          ],
+          [
+            28.9998311174991,
+            41.04491555874952
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.9998311174991,
+      41.04491555874952,
+      29.04474667624865,
+      41.089831117499074
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0007.tif",
+    "lulc_stats": {
+      "built_up": 0.5483082027944486,
+      "vegetation": 0.3364460011706264,
+      "water": 0.11524579603492492
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.13962461591906766,
+      "distance_to_transit": 605.60866057207
+    },
+    "text_description": "1. LAND COVER:\nThe dominant land cover within the tile is a mix of vegetation and built-up areas, with the built-up area constituting approximately 54.8% of the overall image. The vegetation present appears to be fragmented and scattered throughout the urban landscape. Water bodies are also visible, making up about 11.5% of the tile.\n\n2. URBAN FORM:\nThe building density is low, indicating a more suburban or rural setting rather than a dense urban core. The average building size is large, suggesting a mixture of institutional or industrial structures within this area. The spatial arrangement of buildings appears somewhat organic, without any clear signs of strict grid-like planning.\n\n3. STREET NETWORK:\nThe road organization in the tile shows an organic street network with no clear indications of highways or major thoroughfares. This type of street layout is more common in residential or suburban areas and suggests a less formal urban structure.\n\n4. ACCESSIBILITY:\nBased on the image, there is transit accessibility present within 605 meters from this location. The tile falls into the moderate accessibility category, which implies that it is relatively accessible to public transportation but not in immediate proximity to major transit lines or hubs.\n\n5. INTERPRETATION:\nThe urban character of this area appears to be a mix of residential or suburban zones with some industrial or institutional structures interspersed throughout. The organic street network and low building density suggest a less formalized urban environment, potentially on the outskirts of a city or in a developing region. The presence of transit within 605 meters indicates that there is access to public transportation, which may facilitate connectivity and economic growth in this area. The relatively high built-up area percentage might be an indication of expanding suburbanization or urban encroachment into what was once rural or less developed land. Overall, the image presents a snapshot of a developing or transitioning urban environment.",
+    "metadata": {
+      "created_at": "2026-04-17T21:45:49.167249",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  },
+  {
+    "region_id": "tile_0008",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            28.9998311174991,
+            41.089831117499074
+          ],
+          [
+            29.04474667624865,
+            41.089831117499074
+          ],
+          [
+            29.04474667624865,
+            41.134746676248625
+          ],
+          [
+            28.9998311174991,
+            41.134746676248625
+          ],
+          [
+            28.9998311174991,
+            41.089831117499074
+          ]
+        ]
+      ]
+    },
+    "bbox": [
+      28.9998311174991,
+      41.089831117499074,
+      29.04474667624865,
+      41.134746676248625
+    ],
+    "image_path": "./urban_tiles/istanbul/tile_0008.tif",
+    "lulc_stats": {
+      "built_up": 0.47517197848081977,
+      "vegetation": 0.5240505990071122,
+      "water": 0.0007774225118612805
+    },
+    "urban_features": {
+      "building_density": "low",
+      "road_pattern": "organic",
+      "avg_building_size": "large"
+    },
+    "derived_metrics": {
+      "impervious_ratio": -0.18460184267180732,
+      "distance_to_transit": 269.28543061268584
+    },
+    "text_description": "1. LAND COVER:\nThe image showcases a blend of both natural and urban land cover elements. The built-up area, which consists of residential and commercial structures, covers approximately 47.5% of the scene, while vegetation is present in about 52.4%. There appears to be minimal water presence, accounting for only 0.1% of the total land cover.\n\n2. URBAN FORM:\nThe urban form exhibits a low building density, indicating that the area may have sparse population or is underdeveloped. The average building size is large, suggesting a mix of commercial and institutional buildings. The spatial arrangement of these structures seems organic, which implies less strict land use planning compared to more grid-like patterns often seen in densely populated areas.\n\n3. STREET NETWORK:\nThe road network within the image consists of both major and minor roads that weave their way through the landscape. The presence of multiple road segments suggests a moderate level of connectivity within the urban area, but it's not yet clear how well these roads interconnect to create an efficient transit system.\n\n4. ACCESSIBILITY:\nThe distance to transit is 269.285 meters, which falls into the 'moderate accessibility' category as per the rules provided. This indicates that the area has some level of accessibility to public transportation services but may not be highly accessible or convenient for residents and visitors.\n\n5. INTERPRETATION:\nBased on the given metrics, it seems that this area is in a transitional phase between natural and urban environments. The low building density and organic road pattern suggest a less densely populated area with potentially lower population density compared to more compact cities. The large average building size may indicate that there are some institutional or commercial structures in the vicinity.\n\nOverall, the image portrays an urban landscape with moderate accessibility and a relatively low urban form compared to denser city centers. This could be indicative of a developing area that is still in the process of urbanization or an older part of a city where population has thinned out over time. Further analysis of the transit system, land use patterns, and demographic data would be necessary for a more comprehensive understanding of this urban environment.",
+    "metadata": {
+      "created_at": "2026-04-17T21:47:37.284046",
+      "source": "Sentinel-2 2023",
+      "resolution_m": 10
+    }
+  }
+]
