@@ -856,3 +856,14 @@ LLM:    gemma2:3b-cloud        (1.5-2.5 sec, better quality)
 9. **Test with batch of 10 satellite images**
 
 Ready to start?
+---
+
+## Knowledge base (urban_tiles)
+
+Offline ingest populates ChromaDB collection `geo_knowledge` from `urban_tiles/{city}/vectors/all_vectors.json` (104 tiles, 12 cities). Run from project root:
+
+```bash
+python scripts/ingest_urban_tiles.py --reset
+```
+
+Retrieval at runtime uses existing `rag_service` (semantic + BM25 + RRF). Vision still runs on user uploads via Ollama; tile images are reference assets. Tunisia ADM2 shapefiles remain for optional spatial enrichment.

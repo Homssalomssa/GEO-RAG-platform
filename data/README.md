@@ -27,7 +27,19 @@ data/
 └── README.md (this file)
 ```
 
-## Knowledge Documents
+## Knowledge Documents (legacy archive)
+## Primary knowledge base (urban_tiles)
+
+ChromaDB is populated from `urban_tiles/{city}/vectors/all_vectors.json` (104 global city tiles).
+
+```bash
+python scripts/ingest_urban_tiles.py --reset
+python scripts/verify_knowledge_base.py
+```
+
+Legacy Tunisia `.txt` files in `data/knowledge/` are no longer ingested by default.
+
+
 
 Source text files ingested into ChromaDB for RAG retrieval.
 

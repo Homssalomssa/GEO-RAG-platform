@@ -3,11 +3,14 @@ import { API_BASE, POLLING_INTERVAL, MAX_POLLING_ATTEMPTS } from './constants'
 /**
  * Submit an image for analysis
  */
-export async function submitAnalysis(file, question, mode) {
+﻿export async function submitAnalysis(file, question, mode, city = '') {
   const formData = new FormData()
   formData.append('image', file)
   formData.append('question', question)
   formData.append('mode', mode)
+  if (city) {
+    formData.append('city', city)
+  }
 
   console.log('Submitting analysis:', {
     fileName: file.name,
@@ -15,6 +18,7 @@ export async function submitAnalysis(file, question, mode) {
     fileType: file.type,
     question,
     mode,
+    city: city || '(any)',
   })
 
   try {
@@ -40,9 +44,6 @@ export async function submitAnalysis(file, question, mode) {
   }
 }
 
-/**
- * Check job status and get intermediate progress
- */
 export async function checkJobStatus(jobId) {
   try {
     const response = await fetch(`${API_BASE}/status/${jobId}`)

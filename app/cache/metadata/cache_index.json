@@ -7,12 +7,12 @@
     "vision": {
       "count": 0,
       "storage_mb": 0,
-      "hit_count": 0
+      "hit_count": 2
     },
     "embeddings": {
       "count": 0,
       "storage_mb": 0,
-      "hit_count": 0,
+      "hit_count": 2,
       "expired_count": 0
     },
     "llm_responses": {
@@ -22,5 +22,5 @@
       "expired_count": 0
     }
   },
-  "last_updated": "2026-04-09T17:51:08.301613"
+  "last_updated": "2026-05-25T16:41:00.349968"
 }

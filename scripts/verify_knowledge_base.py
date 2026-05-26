@@ -1,59 +1,44 @@
-"""
-Verify that satellite images and knowledge documents are complete and properly paired.
-"""
-
+﻿"""Verify urban_tiles knowledge base in ChromaDB."""
+import sys
 from pathlib import Path
-from image_knowledge_index import IMAGE_KNOWLEDGE_MAP
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "app"))
+
+from services.rag_service import _get_collection, semantic_search
+
+EXPECTED = 104
+CITIES = [
+    "cairo", "chicago", "dubai", "istanbul", "manhattan", "paris",
+    "sao_paulo", "singapore", "sydney", "tokyo", "tunis", "venice",
+]
 
 
-def verify_knowledge_base() -> None:
-    """Verify all images and knowledge documents exist."""
-    project_root = Path(__file__).parent
-
+def main():
     print("=" * 70)
-    print("KNOWLEDGE BASE VERIFICATION REPORT")
+    print("URBAN TILES KNOWLEDGE BASE VERIFICATION")
     print("=" * 70)
-    print()
-
-    all_ok = True
-
-    for adm2_code, metadata in IMAGE_KNOWLEDGE_MAP.items():
-        image_path = project_root / metadata["image"]
-        knowledge_path = project_root / metadata["knowledge"]
-
-        image_exists = image_path.exists()
-        knowledge_exists = knowledge_path.exists()
-
-        image_status = "[OK]" if image_exists else "[MISSING]"
-        knowledge_status = "[OK]" if knowledge_exists else "[MISSING]"
-
-        if not image_exists or not knowledge_exists:
-            all_ok = False
-
-        print(f"ADM2: {adm2_code} ({metadata['adm2']})")
-        print(f"  Satellite Image:   {image_status} {metadata['image']}")
-        if image_exists:
-            size_mb = image_path.stat().st_size / (1024 * 1024)
-            print(f"                     Size: {size_mb:.2f} MB")
-        print(f"  Knowledge Doc:     {knowledge_status} {metadata['knowledge']}")
-        if knowledge_exists:
-            size_kb = knowledge_path.stat().st_size / 1024
-            lines = len(knowledge_path.read_text().splitlines())
-            print(f"                     Size: {size_kb:.1f} KB ({lines} lines)")
-        print()
-
-    print("=" * 70)
-    if all_ok:
-        print("STATUS: ALL FILES PRESENT AND VERIFIED")
+    collection = _get_collection()
+    count = collection.count()
+    ok = count == EXPECTED
+    print(f"ChromaDB chunks: {count} (expected {EXPECTED}) -> {'OK' if ok else 'FAIL'}")
+    results = collection.get(include=["metadatas"])
+    sources = [m.get("source", "") for m in results["metadatas"]]
+    for city in CITIES:
+        n = sum(1 for s in sources if s.startswith(f"urban_tiles/{city}/"))
+        print(f"  {city}: {n} tiles")
+    sample = semantic_search("high built-up organic road network cairo")
+    if sample:
+        print(f"Sample search top source: {sample[0]['source']} (score {sample[0]['score']})")
+        ok = ok and sample[0]["source"].startswith("urban_tiles/")
     else:
-        print("STATUS: SOME FILES MISSING - PLEASE RUN SETUP SCRIPTS")
+        print("Sample search: no results")
+        ok = False
     print("=" * 70)
-    print()
-    print("Summary:")
-    print(f"  Total ADM2 areas: {len(IMAGE_KNOWLEDGE_MAP)}")
-    print(f"  Total satellite images: {sum(1 for code in IMAGE_KNOWLEDGE_MAP if (project_root / IMAGE_KNOWLEDGE_MAP[code]['image']).exists())}")
-    print(f"  Total knowledge documents: {sum(1 for code in IMAGE_KNOWLEDGE_MAP if (project_root / IMAGE_KNOWLEDGE_MAP[code]['knowledge']).exists())}")
+    print("STATUS:", "PASS" if ok else "FAIL — run: python scripts/ingest_urban_tiles.py --reset")
+    print("=" * 70)
+    sys.exit(0 if ok else 1)
 
 
 if __name__ == "__main__":
-    verify_knowledge_base()
+    main()

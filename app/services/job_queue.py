@@ -63,7 +63,7 @@ class JobQueue:
             except Exception as e:
                 logger.error(f"Error saving job queue: {e}")
 
-    def create_job(self, image_hash: str, question: str, mode: str, batch_id: Optional[str] = None) -> str:
+    def create_job(self, image_hash: str, question: str, mode: str, batch_id: Optional[str] = None, city: str = "") -> str:
         """Create new job and return job_id."""
         job_id = str(uuid.uuid4())[:8]
 
@@ -74,7 +74,8 @@ class JobQueue:
             "request": {
                 "image_hash": image_hash,
                 "question": question,
-                "mode": mode
+                "mode": mode,
+                "city": city or ""
             },
             "stages": {
                 "vision_extraction": "pending",

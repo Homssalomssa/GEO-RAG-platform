@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+﻿import { useState, useCallback } from 'react'
 import { submitAnalysis, pollJobStatus, checkHealth } from '../utils/api'
 
 export function useAnalysis() {
@@ -7,7 +7,7 @@ export function useAnalysis() {
   const [loadingMessage, setLoadingMessage] = useState('')
   const [error, setError] = useState(null)
 
-  const analyze = useCallback(async (files, question, mode, onResultAdded) => {
+  const analyze = useCallback(async (files, question, mode, onResultAdded, city = "") => {
     setIsAnalyzing(true)
     setError(null)
     setProgress(0)
@@ -22,7 +22,7 @@ export function useAnalysis() {
           setLoadingMessage(`Analyzing image ${completedCount + 1} of ${files.length}...`)
 
           // Submit image for analysis
-          const jobId = await submitAnalysis(fileObj.file, question, mode)
+          const jobId = await submitAnalysis(fileObj.file, question, mode, city)
 
           // Poll for results
           const result = await pollJobStatus(jobId, (progressData) => {
@@ -81,3 +81,7 @@ export function useAnalysis() {
     reset,
   }
 }
+
+
+
+

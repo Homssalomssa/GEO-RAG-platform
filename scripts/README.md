@@ -1,18 +1,18 @@
-# Utility Scripts
+﻿# Utility Scripts
 
-This directory contains one-off scripts for data collection, ingestion, validation, and analysis. These are NOT part of the main app—they're utilities to set up and manage data.
+This directory contains one-off scripts for data collection, ingestion, validation, and analysis. These are NOT part of the main appâ€”they're utilities to set up and manage data.
 
 ## Scripts
 
 ### Core Utilities (v0.3)
 
-- **ingest_knowledge.py** — Load text documents into ChromaDB
+- **ingest_knowledge.py** â€” Load text documents into ChromaDB
 
   ```bash
   python scripts/ingest_knowledge.py --glob "data/knowledge/*.txt"
   ```
 
-- **spatial_setup.py** [NEW] — Download and index shapefiles for spatial enrichment
+- **spatial_setup.py** [NEW] â€” Download and index shapefiles for spatial enrichment
   ```bash
   python scripts/spatial_setup.py
   # Downloads Tunisia ADM2 boundaries, creates rtree index
@@ -20,13 +20,13 @@ This directory contains one-off scripts for data collection, ingestion, validati
 
 ### Data Collection
 
-- **fetch_satellite_imagery_gee.py** — Download single-year Sentinel-2 imagery
+- **fetch_satellite_imagery_gee.py** â€” Download single-year Sentinel-2 imagery
 
   ```bash
   python scripts/fetch_satellite_imagery_gee.py --year 2024
   ```
 
-- **fetch_timeseries_imagery_gee.py** — Download 6-year collection (2020-2025)
+- **fetch_timeseries_imagery_gee.py** â€” Download 6-year collection (2020-2025)
   ```bash
   python scripts/fetch_timeseries_imagery_gee.py
   # Creates data/imagery/timeseries/ with 30 images
@@ -34,44 +34,44 @@ This directory contains one-off scripts for data collection, ingestion, validati
 
 ### Validation & Analysis
 
-- **verify_knowledge_base.py** — Check that documents are ingested and accessible
+- **verify_knowledge_base.py** â€” Check that documents are ingested and accessible
 
   ```bash
   python scripts/verify_knowledge_base.py
   ```
 
-- **image_knowledge_index.py** — Map images to knowledge documents by region
+- **image_knowledge_index.py** â€” Map images to knowledge documents by region
 
   ```bash
   python scripts/image_knowledge_index.py
   ```
 
-- **summarize_timeseries.py** — Statistics and reporting for imagery collection
+- **summarize_timeseries.py** â€” Statistics and reporting for imagery collection
   ```bash
   python scripts/summarize_timeseries.py
   ```
 
 ### Exploration & Setup
 
-- **explore_tunisia_codes.py** — Find GAUL ADM2 codes for Tunisia regions
+- **explore_tunisia_codes.py** â€” Find GAUL ADM2 codes for Tunisia regions
 
   ```bash
   python scripts/explore_tunisia_codes.py
   ```
 
-- **visualize_imagery_dashboard.py** [Optional] — Create interactive visualization
+- **visualize_imagery_dashboard.py** [Optional] â€” Create interactive visualization
 
   ```bash
   python scripts/visualize_imagery_dashboard.py
   ```
 
-- **enhance_knowledge_metadata.py** — Add metadata to knowledge documents
+- **enhance_knowledge_metadata.py** â€” Add metadata to knowledge documents
 
   ```bash
   python scripts/enhance_knowledge_metadata.py
   ```
 
-- **build_tunisia_knowledge_adm2.py** — Build region-specific knowledge
+- **build_tunisia_knowledge_adm2.py** â€” Build region-specific knowledge
   ```bash
   python scripts/build_tunisia_knowledge_adm2.py
   ```
@@ -112,3 +112,4 @@ Unlike `app/`, which runs constantly as the server:
 - Scripts are run **_once_** or **_on-demand_**
 - They prepare data, not process requests
 - Examples: fetch imagery, ingest documents, validate setup
+

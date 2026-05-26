@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 REM Complete Geo-RAG Platform Setup & Launch Script (Windows)
 
 setlocal enabledelayedexpansion
@@ -34,7 +34,7 @@ echo Step 3: Setting up knowledge base...
 if not exist "chroma_db" (
     echo   Ingesting documents into ChromaDB...
     cd /d "%~dp0"
-    python scripts/ingest_knowledge.py --glob "data/knowledge/*.txt"
+    python scripts/ingest_urban_tiles.py --reset
     echo   OK: Knowledge base ready
 ) else (
     echo   OK: ChromaDB already exists
@@ -85,3 +85,4 @@ echo   3. Ask a question about urban sprawl
 echo   4. Results appear as they complete
 echo.
 pause
+

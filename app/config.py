@@ -1,4 +1,4 @@
-"""
+﻿"""
 Central configuration for the Geo-RAG platform.
 All external URLs, model names, and tunable parameters live here.
 """
@@ -44,11 +44,18 @@ TUNISIA_REGIONS = {
 # --- LLM Generation Parameters ---
 LLM_TEMPERATURE = 0.3       # Low for analytical consistency
 LLM_MAX_TOKENS = 1024       # Enough for thorough answer
-OLLAMA_TIMEOUT = 120         # Seconds — vision models can be slow
+OLLAMA_TIMEOUT = 120         # Seconds â€” vision models can be slow
 
 # --- RAG Configuration ---
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
 CHROMA_COLLECTION_NAME = "geo_knowledge"
+# Cities available in urban_tiles knowledge base (folder names)
+URBAN_TILE_CITIES = [
+    "cairo", "chicago", "dubai", "istanbul", "manhattan", "paris",
+    "sao_paulo", "singapore", "sydney", "tokyo", "tunis", "venice",
+]
+
+URBAN_TILES_DIR = os.getenv("URBAN_TILES_DIR", "./urban_tiles")
 
 # Embedding model for ChromaDB (runs locally via sentence-transformers)
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
@@ -61,3 +68,4 @@ RRF_K = 60                  # Reciprocal Rank Fusion constant
 # --- Image Configuration ---
 MAX_IMAGE_SIZE_MB = 10
 SUPPORTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/tiff", "image/webp"]
+

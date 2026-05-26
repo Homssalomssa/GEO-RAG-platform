@@ -57,6 +57,42 @@ def _get_collection() -> chromadb.Collection:
     return _collection
 
 
+
+
+def _reset_module_state():
+    global _chroma_client, _collection, _bm25_index, _bm25_documents
+    _collection = None
+    _bm25_index = None
+    _bm25_documents = []
+
+
+def reset_knowledge_base() -> None:
+    global _chroma_client
+    _reset_module_state()
+    _chroma_client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
+    try:
+        _chroma_client.delete_collection(CHROMA_COLLECTION_NAME)
+        logger.info("Deleted collection")
+    except Exception:
+        logger.info("Collection did not exist")
+    _chroma_client.get_or_create_collection(
+        name=CHROMA_COLLECTION_NAME,
+        metadata={"hnsw:space": "cosine"},
+    )
+    _reset_module_state()
+
+
+def _normalize_chroma_metadata(meta: dict) -> dict:
+    out = {}
+    for key, value in meta.items():
+        if value is None:
+            continue
+        if isinstance(value, (str, int, float, bool)):
+            out[key] = value
+        else:
+            out[key] = str(value)
+    return out
+
 # ---------------------------------------------------------------------
 # Document Ingestion
 # ---------------------------------------------------------------------
@@ -84,7 +120,7 @@ def _chunk_text(text: str, chunk_size: int = 500, overlap: int = 100) -> list[st
     return [c for c in chunks if len(c) > 50]  # Drop tiny fragments
 
 
-def ingest_documents(documents: list[dict]) -> int:
+def ingest_documents(documents: list[dict], *, skip_chunking: bool = False) -> int:
     """
     Chunk and embed documents into ChromaDB.
 
@@ -101,33 +137,39 @@ def ingest_documents(documents: list[dict]) -> int:
     for doc in documents:
         text = doc.get("text", "")
         source = doc.get("source", "unknown")
+        extra_meta = doc.get("metadata") or {}
+        doc_skip = doc.get("skip_chunking", skip_chunking)
 
         if not text.strip():
             continue
 
-        chunks = _chunk_text(text)
+        if doc_skip:
+            chunks = [text.strip()]
+        else:
+            chunks = _chunk_text(text)
         if not chunks:
             continue
 
-        # Embed all chunks
         embeddings = embedder.encode(chunks).tolist()
 
-        # Generate IDs
         existing_count = collection.count()
         ids = [f"doc_{existing_count + total_chunks + i}" for i in range(len(chunks))]
 
-        # Upsert into ChromaDB
+        metadatas = []
+        for i in range(len(chunks)):
+            meta = {"source": source, "chunk_index": i, **extra_meta}
+            metadatas.append(_normalize_chroma_metadata(meta))
+
         collection.add(
             ids=ids,
             documents=chunks,
             embeddings=embeddings,
-            metadatas=[{"source": source, "chunk_index": i} for i in range(len(chunks))]
+            metadatas=metadatas,
         )
 
         total_chunks += len(chunks)
         logger.info(f"Ingested {len(chunks)} chunks from '{source}'")
 
-    # Rebuild BM25 index after ingestion
     _rebuild_bm25_index()
 
     return total_chunks
@@ -162,7 +204,7 @@ def _rebuild_bm25_index():
 # Retrieval
 # ---------------------------------------------------------------------
 
-def semantic_search(query: str, top_k: int = None) -> list[dict]:
+def semantic_search(query: str, top_k: int = None, city: str = None) -> list[dict]:
     """
     Vector similarity search in ChromaDB.
 
@@ -178,11 +220,15 @@ def semantic_search(query: str, top_k: int = None) -> list[dict]:
     embedder = _get_embedder()
     query_embedding = embedder.encode([query]).tolist()
 
-    results = collection.query(
-        query_embeddings=query_embedding,
-        n_results=min(top_k, collection.count()),
-        include=["documents", "metadatas", "distances"]
-    )
+    where = {"city": city} if city else None
+    query_kwargs = {
+        "query_embeddings": query_embedding,
+        "n_results": min(top_k, collection.count()),
+        "include": ["documents", "metadatas", "distances"],
+    }
+    if where:
+        query_kwargs["where"] = where
+    results = collection.query(**query_kwargs)
 
     chunks = []
     for doc, meta, distance in zip(
@@ -199,7 +245,7 @@ def semantic_search(query: str, top_k: int = None) -> list[dict]:
     return chunks
 
 
-def keyword_search(query: str, top_k: int = None) -> list[dict]:
+def keyword_search(query: str, top_k: int = None, city: str = None) -> list[dict]:
     """
     BM25 keyword search over all ingested documents.
 
@@ -222,14 +268,21 @@ def keyword_search(query: str, top_k: int = None) -> list[dict]:
         enumerate(scores), key=lambda x: x[1], reverse=True
     )[:top_k]
 
+    prefix = f"urban_tiles/{city}/" if city else None
     results = []
     for idx, score in scored_indices:
-        if score > 0:  # Only return docs with non-zero BM25 score
-            results.append({
-                "chunk": _bm25_documents[idx]["chunk"],
-                "source": _bm25_documents[idx]["source"],
-                "score": round(float(score), 4)
-            })
+        if score <= 0:
+            continue
+        source = _bm25_documents[idx]["source"]
+        if prefix and not source.startswith(prefix):
+            continue
+        results.append({
+            "chunk": _bm25_documents[idx]["chunk"],
+            "source": source,
+            "score": round(float(score), 4),
+        })
+        if len(results) >= top_k:
+            break
 
     return results
 

@@ -10,6 +10,7 @@ export default function App() {
   const [uploadedFiles, setUploadedFiles] = useState([])
   const [question, setQuestion] = useState('')
   const [mode, setMode] = useState('rag_baseline')
+  const [city, setCity] = useState('')
   const [results, setResults] = useState([])
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [progress, setProgress] = useState(0)
@@ -79,7 +80,7 @@ export default function App() {
           setLoadingMessage(`Analyzing image ${completedCount + 1} of ${uploadedFiles.length}...`)
 
           // Submit image for analysis
-          const jobId = await submitAnalysis(fileObj.file, question, mode)
+          const jobId = await submitAnalysis(fileObj.file, question, mode, city)
 
           // Poll for results
           const result = await pollJobStatus(jobId, (progressData) => {
@@ -122,6 +123,7 @@ export default function App() {
   const handleBackToUpload = () => {
     setCurrentPage('upload')
     setQuestion('')
+    setCity('')
     setResults([])
     setUploadedFiles([])
   }
@@ -134,6 +136,8 @@ export default function App() {
           onQuestionChange={setQuestion}
           mode={mode}
           onModeChange={setMode}
+          city={city}
+          onCityChange={setCity}
           files={uploadedFiles}
           onFilesSelected={handleFilesSelected}
           onRemoveFile={handleRemoveFile}

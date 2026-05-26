@@ -2,13 +2,15 @@ import Card from '../shared/Card'
 import FormGroup from '../shared/FormGroup'
 import ModeSelector from '../shared/ModeSelector'
 import Button from '../shared/Button'
-import { MAX_QUESTION_LENGTH } from '../../utils/constants'
+import { MAX_QUESTION_LENGTH, URBAN_CITIES } from '../../utils/constants'
 
 export default function AnalysisSettings({
   question,
   onQuestionChange,
   mode,
   onModeChange,
+  city,
+  onCityChange,
   onAnalyze,
   isAnalyzing,
   hasFiles,
@@ -66,6 +68,16 @@ export default function AnalysisSettings({
             Infrastructure Change
           </button>
         </div>
+      </FormGroup>
+
+
+      <FormGroup label="Knowledge base city (optional)">
+        <select value={city} onChange={(e) => onCityChange(e.target.value)} className="w-full bg-surface-container-low border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary transition-all focus:outline-none text-on-surface">
+          {URBAN_CITIES.map((c) => (
+            <option key={c.value || 'any'} value={c.value}>{c.label}</option>
+          ))}
+        </select>
+        <p className="mt-2 text-[10px] font-label text-outline leading-relaxed">Narrows RAG to that city. Any city searches all 12.</p>
       </FormGroup>
 
       {/* Mode Selector */}

@@ -7,6 +7,8 @@ export default function UploadPage({
   onQuestionChange,
   mode,
   onModeChange,
+  city,
+  onCityChange,
   files,
   onFilesSelected,
   onRemoveFile,
@@ -41,6 +43,8 @@ export default function UploadPage({
             onQuestionChange={onQuestionChange}
             mode={mode}
             onModeChange={onModeChange}
+            city={city}
+            onCityChange={onCityChange}
             onAnalyze={onAnalyze}
             isAnalyzing={isAnalyzing}
             hasFiles={files.length > 0}

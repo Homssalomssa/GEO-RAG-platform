@@ -53,23 +53,29 @@ def minimal_test_image():
 
 @pytest.fixture(scope="session")
 def test_documents():
-    """Minimal test documents for knowledge base."""
+    """Minimal urban tile-style documents for knowledge base tests."""
     return [
         {
-            "text": "Urban planning is the discipline of developing and designing cities. "
-                   "Satellite imagery helps planners identify settlement patterns and infrastructure.",
-            "source": "test_urban_planning.txt"
+            "text": (
+                "City: cairo | Tile: tile_test_0 | BBox: [31.17, 30.0, 31.21, 30.04]\n"
+                "Land cover: built_up=97.0%, vegetation=2.0%, water=0%\n"
+                "Urban: building_density=high, road_pattern=organic\n"
+                "---\n"
+                "Predominantly built-up urban tile with organic street layout."
+            ),
+            "source": "urban_tiles/cairo/tile_test_0",
+            "skip_chunking": True,
         },
         {
-            "text": "Informal settlements are urban areas that develop outside official planning. "
-                   "They often exhibit irregular street patterns and mixed building types.",
-            "source": "test_informal_settlement.txt"
+            "text": (
+                "City: tunis | Tile: tile_test_1 | BBox: [10.1, 36.75, 10.14, 36.79]\n"
+                "Land cover: built_up=70.0%, vegetation=10.0%, water=15.0%\n"
+                "---\n"
+                "Mixed urban and water cover near the coast."
+            ),
+            "source": "urban_tiles/tunis/tile_test_1",
+            "skip_chunking": True,
         },
-        {
-            "text": "Building density is measured as structures per unit area. "
-                   "High density areas often indicate urban development.",
-            "source": "test_density_metrics.txt"
-        }
     ]
 
 

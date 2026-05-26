@@ -44,6 +44,7 @@ class AnswerGenerator:
 
             question = job["request"]["question"]
             mode = job["request"]["mode"]
+            city = (job["request"].get("city") or "").strip().lower()
             image_hash = job["request"]["image_hash"]
 
             logger.info(f"Answer Generator: Processing {job_id}")
@@ -57,13 +58,16 @@ class AnswerGenerator:
                 raise ValueError(f"Vision features not found for {image_hash}")
 
             # Fetch cached retrieval results
-            query_hash = hashlib.sha256(f"{question}{mode}".encode()).hexdigest()
+            query_hash = hashlib.sha256(f"{question}{mode}{city}".encode()).hexdigest()
             retrieval_results = await self.cache.get_embeddings(query_hash)
             if not retrieval_results:
                 raise ValueError(f"Retrieval results not found for {query_hash}")
 
             # Get spatial context from job payload when available
             spatial_context = job.get("spatial_context", "")
+            if city:
+                focus = f"Knowledge base focus city: {city.replace('_', ' ').title()}"
+                spatial_context = f"{focus}\n{spatial_context}".strip()
 
             # Build prompt with all context
             prompt = build_prompt(

@@ -43,6 +43,7 @@ class Retriever:
 
             question = job["request"]["question"]
             mode = job["request"]["mode"]
+            city = (job["request"].get("city") or "").strip().lower()
             image_hash = job["request"]["image_hash"]
 
             logger.info(f"Retriever: Processing {job_id} (question: {question[:50]}...)")
@@ -54,7 +55,7 @@ class Retriever:
             self.job_queue.update_stage(job_id, "knowledge_retrieval", "processing", percent=30)
 
             # Compute query hash
-            query_hash = hashlib.sha256(f"{question}{mode}".encode()).hexdigest()
+            query_hash = hashlib.sha256(f"{question}{mode}{city}".encode()).hexdigest()
 
             # Check cache
             cached_results = await self.cache.get_embeddings(query_hash)
@@ -73,8 +74,9 @@ class Retriever:
                 logger.warning("Spatial enrichment not yet implemented — skipping")
 
             # Semantic + keyword retrieval
-            semantic_results = semantic_search(f"{question} {spatial_context}", top_k=5)
-            keyword_results = keyword_search(question, top_k=3)
+            city_hint = f" City: {city}" if city else ""
+            semantic_results = semantic_search(f"{question}{city_hint} {spatial_context}", top_k=5, city=city or None)
+            keyword_results = keyword_search(question + city_hint, top_k=3, city=city or None)
 
             # Merge with RRF
             merged_results = merge_and_rerank(semantic_results, keyword_results)

@@ -1,4 +1,4 @@
-// API Configuration
+﻿// API Configuration
 export const API_BASE = '/api'
 export const POLLING_INTERVAL = 500 // ms
 export const MAX_POLLING_ATTEMPTS = 300 // ~2.5 minutes
@@ -7,6 +7,23 @@ export const MAX_POLLING_ATTEMPTS = 300 // ~2.5 minutes
 export const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
 export const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/tiff', 'image/webp']
 export const MAX_QUESTION_LENGTH = 500
+
+// Urban tiles cities (matches backend URBAN_TILE_CITIES)
+export const URBAN_CITIES = [
+  { value: '', label: 'Any city (auto)' },
+  { value: 'cairo', label: 'Cairo' },
+  { value: 'chicago', label: 'Chicago' },
+  { value: 'dubai', label: 'Dubai' },
+  { value: 'istanbul', label: 'Istanbul' },
+  { value: 'manhattan', label: 'Manhattan' },
+  { value: 'paris', label: 'Paris' },
+  { value: 'sao_paulo', label: 'Sao Paulo' },
+  { value: 'singapore', label: 'Singapore' },
+  { value: 'sydney', label: 'Sydney' },
+  { value: 'tokyo', label: 'Tokyo' },
+  { value: 'tunis', label: 'Tunis' },
+  { value: 'venice', label: 'Venice' },
+]
 
 // Analysis Modes
 export const ANALYSIS_MODES = {

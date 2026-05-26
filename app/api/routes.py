@@ -41,6 +41,7 @@ async def analyze_image_async(
     image: UploadFile = File(..., description="Satellite image file"),
     question: str = Form(..., description="Question about the image"),
     mode: str = Form(default="rag_baseline", description="Analysis mode"),
+    city: str = Form(default="", description="Optional urban_tiles city hint"),
 ):
     """
     Submit image for async analysis. Returns job_id immediately.
@@ -68,6 +69,12 @@ async def analyze_image_async(
         raise HTTPException(status_code=400, detail="Question cannot be empty")
     if len(question) > 500:
         raise HTTPException(status_code=400, detail="Question too long (max 500 chars)")
+    city = (city or "").strip().lower()
+    from config import URBAN_TILE_CITIES
+    if city and city not in URBAN_TILE_CITIES:
+        raise HTTPException(status_code=400, detail=f"Invalid city: {city}")
+
+
 
     # Read and hash image
     image_bytes = await image.read()
@@ -79,7 +86,7 @@ async def analyze_image_async(
     image_hash = hashlib.sha256(image_bytes).hexdigest()
 
     # Create job in queue
-    job_id = job_queue.create_job(image_hash, question.strip(), mode)
+    job_id = job_queue.create_job(image_hash, question.strip(), mode, city=city)
 
     # Persist raw image bytes so the vision worker can base64-encode them
     tmp_dir = Path("/tmp")
@@ -95,6 +102,14 @@ async def analyze_image_async(
         "message": f"Job queued. Poll /api/status/{job_id} for progress"
     }
 
+
+
+
+@router.get("/cities")
+async def list_urban_cities():
+    """Return cities available in the urban_tiles knowledge base."""
+    from config import URBAN_TILE_CITIES
+    return {"cities": URBAN_TILE_CITIES}
 
 # ------------------------------------------------------------------
 # Batch Analysis Endpoint (v0.3)
